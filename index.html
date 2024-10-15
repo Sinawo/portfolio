@@ -1,133 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title> Portfolio</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" rel="stylesheet">
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="pic/logo.png">
 </head>
+
 <body>
 
-    <header class="header">
-        <a href="#" class="logo">  <span> <b> SINA</span>WO </b></a>    
+  <header class="header">
+      <a href="#" class="logo"> <span><b>SINA</span>WO</b></a>
 
+      <nav class="navbar">
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="contact">Contact</a>
 
-        <nav class="navbar">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Education</a></li>
-
-            </ul>
-        </nav>
-        <a href="#" class="contact">Contact </a>  
-    </header>
-
-    <!---This is the same  as the main class-->
-    <section class="home"> 
-      <div class="home-content">
-        <h3>Hi, I'm <span>Sinawo </span> </h3>
-
-        <h1><span>W</span>EB <span>D</span>EVELOPER</h1>
-        
-        <h3>Data analyst | <span> Engineer </span> and Developer from South Africa. I create <br> BI, web and solution to do
-          businesses do better <br> online.</h3>
-        <P>
-          I'm a passionate developer with a love for creating efficient and scalable solutions. With skills in HTML, CSS, JavaScript, and data analysis tools, I help businesses achieve their technical goals
-
-          Gathered data from an automobile website using Python, stored it in
-              MS datastore, cleaned the data, and built a model to provide
-              meaningful business insights using MS Power BI and other
-              visualization tools. Automated the process using a pipeline.
-        </P>
-        <!--my video-->
-         <div class="btn-box">
-            <button class="btn-1"> Hire Me</button>
-            <button class="btn-2"> Contact Me</button>
-         </div>
-
-
-         <div class="img">
-          <img src="pic/Media.jpg" class="img-box">
+      
+      <!-- Hamburger Menu Icon for Mobile -->
+      <div class="menu-icon" id="menu-icon">
+        <ion-icon name="menu-outline"></ion-icon>
       </div>
+  </header>
 
-      <div class="icons">
+
+
+  <!---Home Section-->
+  <section id="home" class="home">
+    <div class="home-content">
+        <h3>Hi, I'm <span>Sinawo</span></h3>
+        <h1><span>W</span>EB <span>D</span>EVELOPER</h1>
+        <h3>Data analyst | <span>Engineer</span> and Developer from South Africa.</h3>
+        <p>I'm a passionate developer with a love for creating efficient and scalable solutions...</p>
+
+        <div class="btn-box">
+          <button class="btn-1">Hire Me</button>
+          <button class="btn-2">Contact Me</button>
+        </div>
+
+        <div class="img">
+          <img src="pic/Media.jpg" class="img-box">
+        </div>
+
+        <div class="icons">
           <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
           <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
           <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
           <a href="https://github.com/Sinawo/Portfolio.git"><ion-icon name="logo-github"></ion-icon></a>
-
-      </div>
-
-    
-         
-
-      </div>
-
-    </section>
-
-    
-
-    <section id="projects" class="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-          <div class="project">
-            <h3>Analysis of the Automobile Website</h3>
-            <p><strong>(03/2023 – 06/2023)</strong></p>
-            <p>
-              Gathered data from an automobile website using Python, stored it in
-              MS datastore, cleaned the data, and built a model to provide
-              meaningful business insights using MS Power BI and other
-              visualization tools. Automated the process using a pipeline.
-            </p>
-          </div>
-          <div class="project">
-            <h3>Rasa NLU Chatbot</h3>
-            <p><strong>(11/2023 – present)</strong></p>
-            <p>
-              Developed a conversational AI system using the Rasa framework. The
-              chatbot acts as a virtual assistant on a Job Portal website,
-              providing quick access to FAQs and facilitating navigation through
-              various services.
-            </p>
-          </div>
-                     <div class="project">
-                        <h3>Project 2</h3>
-                        <p>Description of your project, what you built, and the technologies used.</p>
-                    </div>
-                    
-                    <div class="project">
-                        <h3>Project 3</h3>
-                        <p>Description of your project, what you built, and the technologies used.</p>
-                    </div> 
         </div>
-      </section>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <!-- About content here -->
 
 
 
-    <section id="contact" class="=form">
-        <h2>Contact Me</h2>
-        <form action="#">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-    
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-    
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-    
-          <button type="submit">Send</button>
-        </form>
-      </section>
+
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <h2>Work Experience</h2>
+    <div class="timeline">
+      <div class="container left">
+        <div class="content">
+          <h2>2021</h2>
+          <h3>Company Name 1</h3>
+          <p>Role: Junior Developer</p>
+          <p>Worked on web development projects...</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>2022</h2>
+          <h3>Company Name 2</h3>
+          <p>Role: Mid-level Developer</p>
+          <p>Developed backend services using Python...</p>
+        </div>
+      </div>
+      <div class="container left">
+        <div class="content">
+          <h2>2023</h2>
+          <h3>Company Name 3</h3>
+          <p>Role: Senior Developer</p>
+          <p>Led a team in developing scalable backend systems...</p>
+        </div>
+      </div>
+      <div class="container right">
+        <div class="content">
+          <h2>2024</h2>
+          <h3>Company Name 4</h3>
+          <p>Role: Tech Lead</p>
+          <p>Overseeing development of key projects...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+<!-- Projects Section -->
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project">
+      <h3>Analysis of the Automobile Website</h3>
+      <p><strong>(03/2023 – 06/2023)</strong></p>
+      <p>Gathered data from an automobile website using Python, stored it in MS datastore, cleaned the data, and built a model to derive business insights using MS Power BI. Automated the process in a pipeline.</p>
+    </div>
+    <div class="project">
+      <h3>Rasa NLU Chatbot</h3>
+      <p><strong>(11/2023 – present)</strong></p>
+      <p>Developed a conversational AI system using the Rasa framework for a job portal website. Provided quick access to FAQs and facilitated navigation for users.</p>
+    </div>
+    <div class="project">
+      <h3>Questions Summary</h3>
+      <p><strong>(Various Projects)</strong></p>
+      <p>A summary of key questions related to different projects, showcasing experience in data analysis, software development, and e-commerce, including:</p>
+      <ul>
+        <li>Data analysis pipelines in Azure DevOps</li>
+        <li>KingDee ERP data organization and reporting in SQL Server</li>
+        <li>Impact analysis of membership campaigns</li>
+        <li>Dropshipping business in South Africa</li>
+        <li>Relational schema design for members and cashiers</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 
+  <!-- Contact Section -->
+  <section id="contact" class="form">
+    <h2>Contact Me</h2>
+    <div class="form-container">
+      <form>
+          <h2>Contact Us</h2>
+  
+          <div class="input-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+  
+          <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+  
+          <div class="input-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" placeholder="Write your message here..." rows="6" required></textarea>
+          </div>
+  
+          <button type="submit" class="btn-submit">Send Message</button>
+      </form>
+  </div>
+  
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Sinawo. All rights reserved.</p>
-    </footer>
-    
+  <footer>
+    <p>&copy; 2024 Sinawo. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('.navbar ul');
+
+    menuIcon.addEventListener('click', () => {
+      navbar.classList.toggle('show');
+    });
+  </script>
+
 </body>
+
 </html>

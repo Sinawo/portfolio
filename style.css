@@ -5,31 +5,40 @@
     font-family: sans-serif;
     text-decoration: none;
     list-style: none;
+/* correct */
+
 }
 
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 35px 12%;
-    backdrop-filter: blue(10px);
+    padding: 15px 12%;
+    backdrop-filter: blur(10px); /* Corrected the filter function */
     background: url(pic/bg.jpg);
     background-size: cover;
     display: flex;
     justify-content: space-between;
-    align-items:  center;
+    align-items: center;
     z-index: 100;
-
 }
+/* correct */
 
-.logo{
-    font-size:   25px;
+
+
+.logo {
+    font-size: 25px;
     color: darkslategray;
     font-weight: 600;
     transition: 0.3s ease;
 }
 
+/* correct */
+
+
+
+/* 
 .logo:hover{
     color:orangered;
     box-shadow: 0 0 25px orangered;
@@ -37,14 +46,27 @@
                  0 0 50 orangered; 
     transform: scale(1.1);
     transition:  transform 0.3s ease; 
-
     border: 3px solid orangered ;
-
-
 }
+
 
 span{
     color: orangered;
+}
+
+
+
+
+.navbar{
+    width: 100%;
+    display: flex;
+    margin: auto;
+    padding: 15px 0;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2px;
+    margin-left: 200px;
+    padding: 10px 20px;
 }
 
 .navbar a{
@@ -52,7 +74,6 @@ span{
     font-weight: bold;
     text-decoration: none;
     color: darkslategray;
-    font-weight: 500;
     transition: .4s ease;
     margin: 0 25px;
     border-bottom: 3px solid transparent;
@@ -64,26 +85,13 @@ span{
 .nav a.hover{
     border-radius: 50px ;
     color: orangered;
-    /* border: 3px solid orangered; Increase border size to 6px */
-    transition: all 0.3s ease; /* Smooth transition */
-/*
-    border-bottom: 3px solid orangered;  */
+    transition: all 0.3s ease; 
+
 }
 
-/* this these need to fix these   */
 
-.navbar{
-    width: 86%;
-    display: flex;
-    margin: auto;
-    padding: 15px 0;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 50px;
-    margin-left: 200px;
-    
-  
-}
+
+
 
 .navbar .logo{
     width: 160px;
@@ -102,9 +110,56 @@ ul li{
     padding: 10px 16px;
 }
 
-/*----------------------------------------------*/
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li a {
+    font-size: 16px;
+    color: darkslategray;
+    font-weight: 500;
+    transition: 0.4s ease;
+} */
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    font-size: 16px;
+    font-weight: bold;
+    color: darkslategray;
+    margin: 0 25px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    border-radius: 50px;
+    color: orangered;
+    border-bottom: 3px solid orangered;
+    transition: all 0.3s ease;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+*/
+/*--------------------------CONTACT ME BUTTON-----------------------------------------*/
 .contact{
-    padding: 10px 28px;
+    padding: 10px 20px;
     background-color: white;
     color: darkslategray;
     border:  2px solid black;
@@ -113,92 +168,134 @@ ul li{
     letter-spacing: 1px;
     font-weight: 600;
     transition:  0.3s ease;
-}
+} /* Correct */
 
 .contact:hover{
     background-color: orangered;
     box-shadow: 0 0 25px orangered;
     color: #ffffff;
     
+} /* Correct */
+
+
+/* Hamburger Menu for Mobile */
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: darkslategray;
+    cursor: pointer;
 }
 
-.home{
-    width:  100%;
-    min-height: 100vh;
-    background: url(pic/bg.jpg);
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        width: 200px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar ul.show {
+        transform: translateX(0);
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .contact {
+        display: none;
+    }
+}
+
+
+
+
+/*--------------------------HOME CONTENT Styles-------------------------------------------- */
+
+.home {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 7em;
-    padding: 30px 12% 0;
-    position: relative;
+    text-align: center;
+    background: url(pic/bg.jpg);
+    padding: 20px;
+    min-height: 100vh;
     background-size: cover;
-    
+}
 
-
+.home-content h3, .home-content h1, .home-content p {
+    max-width: 600px;
 }
 
 
-.home-content{
-    max-width: 800px;
-}
-.home-content h3{
-    font-size: 42px;
+@media screen and (max-width: 768px) {
+    .home {
+        padding: 20px;
+    }
+
+    .btn-box {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .img {
+        width: 80%;
+    }
+
+    .icons ion-icon {
+        font-size: 30px;
+    }
 }
 
-.home-content h1{
-    font-size: 62px;
-    line-height: 1.2;
-}
 
-.home-content p{
-    font-size: 18px;
-    margin: 20px 0 30px;
-}
 
-.btn-box{
-    width: 345pc;
+
+/*--------------------------HOME CONTENT buttons-------------------------------------------- */
+
+.btn-box {
     display: flex;
     gap: 2em;
 }
-.btn-1{
+
+.btn-1 {
     padding: 15px 28px;
-    border-radius: 8px;
-    border: 2px  solid transparent;
-    background-color: black;
-    text-decoration:  none;
+    background-color: rgb(36, 32, 30);
     color: #fff;
-    background: rgb(36,32,30);
-    margin: 26px 0;
-    padding: 10px 18px;
     border-radius: 10px;
     font-weight: 600;
-    display: inline-block;
-    transition: .4s ease;
+    transition: 0.4s ease;
     cursor: pointer;
-
-} 
-.btn-1:hover{
-    background: rgb(59,174,209);
 }
-.btn-2{
-    padding:15px 28px;
+
+.btn-1:hover {
+    background: rgb(59, 174, 209);
+}
+
+.btn-2 {
+    padding: 15px 28px;
     background-color: orangered;
     color: white;
     border-radius: 8px;
     font-size: 18px;
-    letter-spacing: 1px;
     font-weight: 600;
-    transition: .4s ease;
+    transition: 0.4s ease;
     cursor: pointer;
-    display: inline-block;
-    margin: 26px 0;
-}
-.btn-2:hover{
-    background-color:  rgb(59,174,209) ;
-    color: white;
-    box-shadow: 0 0 25px rgb(59,174,209) ;
 }
 
+.btn-2:hover {
+    background-color: rgb(59, 174, 209);
+    box-shadow: 0 0 25px rgb(59, 174, 209);
+}
+
+/*--------------------------HOME CONTENT image-------------------------------------------- */
 
 
 .img{
@@ -225,10 +322,15 @@ ul li{
     left: 55%;
 }
 
+/*--------------------------HOME CONTENT Icons-------------------------------------------- */
+
+
 .icons a{
     text-decoration: none;
     color: #000;
 }
+
+
 
 .icons ion-icon{
     margin-left: 7%;
@@ -241,4 +343,275 @@ ul li{
 
 .icons ion-icon:hover{
     color: rgb(59,174,209);
+}
+
+/*-----------------------ABOUT US PAGE ----------------------------- */
+
+.about, .projects, .contact {
+    padding: 2rem 5%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about h2, .projects h2, .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.projects .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.projects .project {
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact form button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact form button:hover {
+    background-color: #555;
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+
+
+
+.page-section {
+    min-height: 100vh;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* Default state when not selected */
+.page-section:target {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active state for sections when navigated */
+#home:target, #about:target, #projects:target, #contact:target {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Smooth scrolling to sections */
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+/* ---------------------Experience Timeline ------------------- */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: orangered;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+.container.left {
+    left: 0;
+}
+
+.container.right {
+    left: 50%;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: orangered;
+    border-radius: 50%;
+    top: 15px;
+    border: 4px solid #fff;
+}
+
+.container.right::after {
+    left: -17px;
+}
+
+.content {
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.content h2 {
+    color: orangered;
+}
+
+/* Media Queries for smaller screens */
+@media screen and (max-width: 600px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .container::after {
+        left: 60px;
+    }
+
+    .container.right {
+        left: 0;
+    }
+}
+
+
+
+
+
+
+/* Form Styles */
+/* General Form Styles */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0f0f0;
+}
+
+form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: orangered;
+    outline: none;
+}
+
+/* Button Styles */
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: orangered;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: rgb(59, 174, 209);
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    form {
+        padding: 1.5rem;
+    }
 }
