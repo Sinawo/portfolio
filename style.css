@@ -29,10 +29,14 @@
 
 .logo:hover{
     color:orangered;
-    text-shadow: 0 0 25px orange,
-                 0 0 50 orange; 
+    text-shadow: 0 0 25px orangered,
+                 0 0 50 orangered; 
     transform: scale(1.2);
     transition:  transform 0.3s ease; 
+
+    border: 3px solid orangered ;
+
+
 }
 
 span{
@@ -59,11 +63,11 @@ span{
     transition:  0.3s ease;
 }
 
-.navbar a:hover, 
+/* .navbar a:hover, 
 .nav a.hover{
     color: orangered;
     border-bottom: 3px solid orangered;
-}
+} */
 
 .main{
     width: 100%;
