@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="pic/logo.png">
+  <!-- <link rel="icon" type="image/x-icon" href="pic/logo.png"> -->
 </head>
 
 <body>
@@ -23,13 +23,16 @@
           <li><a href="#education">Education</a></li>
         </ul>
       </nav>
-      <a href="#contact" class="contact">Contact</a>
+      <!-- <a href="#contact" class="contact">Contact</a> -->
 
-      
+
       <!-- Hamburger Menu Icon for Mobile -->
       <div class="menu-icon" id="menu-icon">
         <ion-icon name="menu-outline"></ion-icon>
       </div>
+
+
+
   </header>
 
 
@@ -39,11 +42,12 @@
     <div class="home-content">
         <h3>Hi, I'm <span>Sinawo</span></h3>
         <h1><span>W</span>EB <span>D</span>EVELOPER</h1>
-        <h3>Data analyst | <span>Engineer</span> and Developer from South Africa.</h3>
-        <p>I'm a passionate developer with a love for creating efficient and scalable solutions...</p>
+        <h3>Data analyst | <span>Engineer</span> and <br>
+        <span>BI</span> Developer from South Africa.</h3>
+        <p>I'm a passionate developer with a love for creating <br> efficient and scalable solutions...</p>
 
         <div class="btn-box">
-          <button class="btn-1">Hire Me</button>
+          <button class="btn-1">Projects</button>
           <button class="btn-2">Contact Me</button>
         </div>
 
@@ -146,40 +150,33 @@
     <div class="form-container">
       <form>
           <h2>Contact Us</h2>
-  
+
           <div class="input-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" placeholder="Enter your full name" required>
           </div>
-  
+
           <div class="input-group">
               <label for="email">Email Address</label>
               <input type="email" id="email" placeholder="Enter your email" required>
           </div>
-  
+
           <div class="input-group">
               <label for="message">Your Message</label>
               <textarea id="message" placeholder="Write your message here..." rows="6" required></textarea>
           </div>
-  
+
           <button type="submit" class="btn-submit">Send Message</button>
       </form>
   </div>
-  
+
   </section>
 
   <footer>
     <p>&copy; 2024 Sinawo. All rights reserved.</p>
   </footer>
 
-  <script>
-    const menuIcon = document.getElementById('menu-icon');
-    const navbar = document.querySelector('.navbar ul');
 
-    menuIcon.addEventListener('click', () => {
-      navbar.classList.toggle('show');
-    });
-  </script>
 
 </body>
 

@@ -38,7 +38,7 @@
 
 
 
-/* 
+
 .logo:hover{
     color:orangered;
     box-shadow: 0 0 25px orangered;
@@ -50,10 +50,12 @@
 }
 
 
+
+
 span{
     color: orangered;
 }
-
+/*
 
 
 
@@ -180,9 +182,10 @@ ul li{
 
 /* Hamburger Menu for Mobile */
 .menu-icon {
-    display: none;
-    font-size: 30px;
-    color: darkslategray;
+    /* display: none; */
+    font-size: 800px;
+    /* color: darkslategray; */
+    color: black;
     cursor: pointer;
 }
 
@@ -226,32 +229,57 @@ ul li{
     align-items: center;
     text-align: center;
     background: url(pic/bg.jpg);
-    padding: 20px;
+    padding:78px 12%;
     min-height: 100vh;
     background-size: cover;
 }
 
 .home-content h3, .home-content h1, .home-content p {
-    max-width: 600px;
+    max-width: 800px;
+    margin: 0 auto; /* Center the content horizontally */
+    text-align: left;
+ 
+}
+.home-content{
+    max-width: 800px;
+    margin-right: auto;
+}
+.home-content h3{
+    font-size: 42px;
+    font-weight: bold;
 }
 
+.home-content h1{
+    font-size: 62px;
+    line-height: 1.2;
+}
 
+.home-content p{
+    font-size: 18px;
+    margin: 20px 0 30px;
+}
+
+/* Responsive design for smaller screens */
 @media screen and (max-width: 768px) {
     .home {
-        padding: 20px;
+        padding: 40px 5%; /* Reduce padding on smaller screens */
+    }
+
+    .home-content h3 {
+        font-size: 36px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
     }
 
     .btn-box {
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
     }
 
     .img {
-        width: 80%;
-    }
-
-    .icons ion-icon {
-        font-size: 30px;
+        display: none; /* Hide image on smaller screens */
     }
 }
 
@@ -297,33 +325,64 @@ ul li{
 
 /*--------------------------HOME CONTENT image-------------------------------------------- */
 
-
+/* Container for the image */
 .img{
     width: 30%;
-    height: 50%;
+    height: 55%;
     position: absolute;
     right: 100px;
-    bottom: 0;
-    
+    bottom: 0;    
+    z-index: 1;
+    transition: opacity 0.5s ease;  
 }
 
+
+/* Image itself */
 .img img{
+    max-width: 100%;
     position: absolute;
-    height: 120%;
+    height: 450px;
     left: 50%;
     transform: translate(-55%);
     bottom: 40%;   /* from the bottom */ 
     transition: left 2s ease;
     border-radius: 50%;
-    width: 550px;
+    width: auto;
 }
 
+/* Hide the image when overlap might occur */
+@media screen and (max-width: 1200px) { 
+    /* Assume the image might overlap at this size */
+    .img {
+        opacity: 0; /* Image becomes invisible */
+    }
+}
+
+/* Hover effect */
 .img:hover .img-box{
     left: 55%;
+
 }
 
+/* Hide image when it overlaps a specific element */
+.other-element {
+    position: relative;
+    z-index: 2; /* Set higher z-index for this element */
+}
+/* Media query for when overlap potentially happens */
+@media screen and (max-width: 1000px) {
+    .img {
+        opacity: 0; /* Hide the image when screen size is reduced to potential overlap */
+    }
+}
 /*--------------------------HOME CONTENT Icons-------------------------------------------- */
 
+/* Icons styling */
+.icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
 
 .icons a{
     text-decoration: none;
