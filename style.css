@@ -16,7 +16,7 @@
     width: 100%;
     padding: 15px 12%;
     backdrop-filter: blur(10px); /* Corrected the filter function */
-    background: url(pic/bg.jpg);
+    background: url(pic/bg1.jpg);
     background-size: cover;
     display: flex;
     justify-content: space-between;
@@ -228,7 +228,7 @@ ul li{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url(pic/bg.jpg);
+    background: url(pic/bg1.jpg);
     padding:78px 12%;
     min-height: 100vh;
     background-size: cover;
@@ -505,15 +505,19 @@ html {
     scroll-behavior: smooth;
 }
 
-
-
-
-
 /* ---------------------Experience Timeline ------------------- */
 .timeline {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    
+}
+.experience{
+    background:url(pic/bg3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .timeline::after {
@@ -674,3 +678,91 @@ form h2 {
         padding: 1.5rem;
     }
 }
+
+
+
+
+
+
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    flex-basis: 18%;
+    margin-bottom: 20px;
+  }
+  
+  .footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-column ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-media-icons a img {
+    width: 25px;
+    margin-right: 10px;
+  }
+  
+  .newsletter {
+    margin-top: 20px;
+  }
+  
+  .newsletter button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .newsletter button:hover {
+    background-color: #0056b3;
+  }
+  
+  .footer-bottom {
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .language-selector button {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 5px 10px;
+  }
+  
+  .language-selector button:hover {
+    background-color: #555;
+  }
+  
