@@ -6,39 +6,47 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styles/projects-section.css">
-  <link href="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" rel="stylesheet">
-  <a href="https://www.flaticon.com/free-icons/treasure" title="treasure icons">Treaure</a>
-  <!-- <link rel="icon" type="image/x-icon" href="pic/logo.png"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/form.css">
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </head>
 
 <body>
 
   <header class="header">
-      <a href="#" class="logo"> <span><b>SINA</span>WO</b></a>
+    <a href="#" class="logo"> <span><b>SINA</span>WO</b></a>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#" class="active">
+          <ion-icon name="home-outline"></ion-icon> Home</a></li>
+        <!-- <li><a href="#about">
+          <ion-icon name="person-outline"></ion-icon> About</a></li> -->
+        <li><a href="#experience">
+          <ion-icon name="briefcase-outline"></ion-icon> Experience</a></li>
+        <li><a href="#projects">
+          <ion-icon name="folder-outline"></ion-icon> Projects</a></li>
+        <!-- <li><a href="#education">
+          <ion-icon name="school-outline"></ion-icon> Education</a></li> -->
+      </ul>
+    </nav>
+    <a href="#View/DownloadCV" class="cv">  <ion-icon name="download-outline"></ion-icon> Resume</a>
 
-      <nav class="navbar">
-        <ul>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-        </ul>
-      </nav>
-      <a href="#View/Download CV" class="cv">View CV</a>
-
-
-      <!-- Hamburger Menu Icon for Mobile -->
-      <div class="menu-icon" id="menu-icon">
-        <ion-icon name="menu-outline"></ion-icon>
-      </div>
-
-
-
-  </header>
-
-
-
+    <!-- Hamburger Menu Icon for Mobile
+    <div class="menu-icon" id="menu-icon">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div> -->
+</header>>
   <!---Home Section-->
   <section id="home" class="home">
     <div class="home-content">
@@ -65,81 +73,149 @@
         </div>
     </div>
   </section>
-
-
-
+<!-- 
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p><strong>Sinawo Mngxuma</strong></p>
+          <p>I'm a skilled Data Engineer and Software Developer with a strong background in Computer Science and Information Systems. I have gained valuable expertise in facilitation, software development, and data modeling. I am particularly adept at working with existing systems and developing innovative software solutions tailored to specific business requirements. With my knowledge of Agile Methodology, I am working towards establishing myself as a Senior BI/Software Developer and Data Scientist.</p>
+  
+          <p><strong>Technical Skills:</strong></p>
+          <ul>
+            <li>Programming Languages: C#, Python, Java, JavaScript, HTML, CSS, C++, F#</li>
+            <li>Database Management: Microsoft SQL Server, PostgreSQL, MySQL</li>
+            <li>Tools: Power BI, MS Excel, Visual Studio, Git, Azure DevOps</li>
+          </ul>
+  
+          <p><strong>Contact Details:</strong></p>
+          <p>Email: <a href="mailto:sinawomngxuma@gmail.com">sinawomngxuma@gmail.com</a> | Phone: 083 352 9353</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  
   <!-- Experience Section -->
-  <section id="experience" class="experience">
-    <h2>Work Experience</h2>
+  <section id="experience" class="experience-section">
+    <h1></h1>
+
+    <div class="blurry-image">
+        <div class="blurry-text">
+            <h2>Work Experience</h2>
+        </div>
+    </div>
+
+
+
     <div class="timeline">
       <div class="container left">
         <div class="content">
-          <h2>2021</h2>
-          <h3>Company Name 1</h3>
-          <p>Role: Junior Developer</p>
-          <p>Worked on web development projects...</p>
+          <h2>2020</h2>
+          <h3>Rhodes University</h3>
+          <p>Degree</p>
+          <p>BSc in Software Development.</p>
         </div>
       </div>
       <div class="container right">
         <div class="content">
-          <h2>2022</h2>
-          <h3>Company Name 2</h3>
-          <p>Role: Mid-level Developer</p>
-          <p>Developed backend services using Python...</p>
+          <h2>2021</h2>
+          <h3>Rhodes University 2</h3>
+          <p>Honours Degree</p>
+          <p>BSc Honours Information Systems...</p>
         </div>
       </div>
       <div class="container left">
         <div class="content">
-          <h2>2023</h2>
-          <h3>Company Name 3</h3>
-          <p>Role: Senior Developer</p>
-          <p>Led a team in developing scalable backend systems...</p>
+          <h2>2022</h2>
+          <h3>Platinum Life</h3>
+          <p>Training Specialist</p>
+          <p>In-house training of the employees...</p>
         </div>
       </div>
       <div class="container right">
         <div class="content">
+          <h2>2023</h2>
+          <h3>Canvas Intelligence</h3>
+          <p>Trainee</p>
+          <p>Contributing to Business Solutions projects and assisting in the creation of new
+            software solutions...</p>
+        </div>
+      </div>
+
+
+      <div class="container left">
+        <div class="content">
           <h2>2024</h2>
-          <h3>Company Name 4</h3>
-          <p>Role: Tech Lead</p>
-          <p>Overseeing development of key projects...</p>
+          <h3>ValueCo</h3>
+          <p>Data Preprocessor/Analyst</p>
+          <p>Contributing to Business Solutions projects and assisting in the creation of new
+            software solutions...</p>
+        </div>
+      </div>
+
+
+      <div class="container right">
+        <div class="content">
+          <h2>2024</h2>
+          <h3>CAPACITI</h3>
+          <p>Advance Technical Trainee</p>
+          <p>Contributing to Business Solutions projects and assisting in the creation of new
+            software solutions...</p>
         </div>
       </div>
     </div>
   </section>
 
+
+  </section>
+
   <!-- Projects Section -->
-<!-- Projects Section -->
-<section id="projects" class="projects-section">
-  <div class="project-container">
-      <div class="project-content">
-          <img src="pic/AnalysisProject.png" alt="Automobile Website" class="project-image">
-          <div class="project-text">
-              <h3>Analysis of the Automobile Website</h3>
-              <p>Gathered data from an automobile website using Python, stored it in an MS datastore, and built a model to extract business insights. Automated the process using a pipeline and created dashboards with Power BI.</p>
-          </div>
-      </div>
-      <div class="project-content">
-          <img src="pic/ChatbotProject" alt="Rasa NLU Chatbot" class="project-image">
-          <div class="project-text">
-              <h3>Rasa NLU Chatbot</h3>
-              <p>Developed a conversational AI system using the Rasa framework to assist users on a job portal website with FAQs and navigation support.</p>
-          </div>
-      </div>
-      <div class="project-content">
-          <img src="pic/ScrapingProject.jpg" alt="Questions Summary Project" class="project-image">
-          <div class="project-text">
-              <h3>Questions Summary Project</h3>
-              <p>Summarized all questions asked related to different projects, including data analysis, web development, and e-commerce.</p>
-          </div>
-      </div>
-  </div>
-</section>
+  <section id="projects" class="projects-section">
+
+          <div class="blurry-image">
+            <div class="blurry-text">
+                <h2>Projects</h2>
+            </div>
+        </div>
+        
 
 
+      <div class="project-container">
+          <div class="project-item">
+              <div class="project-image">
+                  <img src="pic/AnalysisProject.png" alt="Automobile Website">
+              </div>
+              <div class="project-text">
+                  <h3>Analysis of the Automobile Website</h3>
+                  <p>Gathered data from an automobile website using Python, stored it in an MS datastore, and built a model to extract business insights. Automated the process using a pipeline and created dashboards with Power BI.</p>
+              </div>
+          </div>
+          <div class="project-item">
+              <div class="project-image">
+                  <img src="pic/ChatbotProject.png" alt="Rasa NLU Chatbot">
+              </div>
+              <div class="project-text">
+                  <h3>Rasa NLU Chatbot</h3>
+                  <p>Developed a conversational AI system using the Rasa framework to assist users on a job portal website with FAQs and navigation support.</p>
+              </div>
+          </div>
+          <div class="project-item">
+              <div class="project-image">
+                  <img src="pic/ScrapingProject.jpg" alt="Questions Summary Project">
+              </div>
+              <div class="project-text">
+                  <h3>Questions Summary Project</h3>
+                  <p>Summarized all questions asked related to different projects, including data analysis, web development, and e-commerce.</p>
+              </div>
+          </div>
+      </div>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="form">
-    <h2>Contact Me</h2>
+
     <div class="form-container">
       <form>
           <h2>Let's Chat</h2>
@@ -166,7 +242,8 @@
   </section>
 
   <footer>
-    <div class="footer-container">
+
+    <!-- <div class="footer-container">
       <div class="footer-column">
         <h4>CONTENT</h4>
         <ul>
@@ -174,7 +251,7 @@
           <li><a href="#">Blog</a></li>
         </ul>
       </div>
-      
+
       <div class="footer-column">
         <h4>INFORMATION</h4>
         <ul>
@@ -186,7 +263,7 @@
           <li><a href="#">Freepik brand guidelines</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-column">
         <h4>LEGAL</h4>
         <ul>
@@ -198,7 +275,7 @@
           <li><a href="#">Cookies Settings</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-column">
         <h4>SUPPORT</h4>
         <ul>
@@ -207,7 +284,7 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-column">
         <h4>SOCIAL MEDIA</h4>
         <div class="social-media-icons">
@@ -223,8 +300,8 @@
           <button>Sign up</button>
         </div>
       </div>
-    </div>
-    
+    </div> -->
+
     <div class="footer-bottom">
       <p>© 2010-2024 Freepik Company S.L. All rights reserved.</p>
       <div class="language-selector">
@@ -232,7 +309,7 @@
       </div>
     </div>
   </footer>
-  
+
 
 
 
