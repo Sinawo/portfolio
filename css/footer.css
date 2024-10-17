@@ -74,3 +74,13 @@ footer {
 .language-selector button:hover {
     background-color: #555;
 }
+
+social-media-icons{
+  
+    color: White;
+
+    transition: .4s ease;
+    <a href="https://github.com/Sinawo/Portfolio.git"><ion-icon name="logo-github"></ion-icon></a>
+
+    
+}
