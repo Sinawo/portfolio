@@ -1,0 +1,58 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    font-size: 16px;
+    font-weight: bold;
+    color: darkslategray;
+    margin: 0 25px;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    border-radius: 50px;
+    color: orangered;
+    border-bottom: 3px solid orangered;
+    transition: all 0.3s ease;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+
+
+.cv {
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.4s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+
+}
+
+.cv:hover {
+    background-color: rgb(59, 174, 209);
+    box-shadow: 0 0 25px rgb(59, 174, 209);
+    transform: scale(1.2)
+}
+
+.cv ion-icon {
+    margin-right: 5px; /* Adds space between icon and text */
+}

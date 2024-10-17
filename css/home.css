@@ -1,0 +1,61 @@
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 78px 12%;
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.home-content h3, .home-content h1, .home-content p {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.home-content {
+    max-width: 800px;
+    margin-right: auto;
+}
+
+.home-content h3 {
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.home-content h1 {
+    font-size: 62px;
+    line-height: 1.2;
+}
+
+.home-content p {
+    font-size: 18px;
+    margin: 20px 0 30px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .home {
+        padding: 40px 5%;
+    }
+
+    .home-content h3 {
+        font-size: 36px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+}
+.icons ion-icon{
+    margin-left: 7%;
+    color: #000;
+    margin-right: 5px;
+    font-size: 40px;
+    transition: .4s ease;
+
+    
+}

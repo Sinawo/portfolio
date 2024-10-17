@@ -1,0 +1,11 @@
+.project{
+    border :0px;
+    color:rgb(51,51, 51);
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 70px;
+    padding: 0px;
+}

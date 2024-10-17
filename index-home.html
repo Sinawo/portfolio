@@ -6,36 +6,47 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="styles/projects-section.css">
-  <link href="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js" rel="stylesheet">
-  <a href="https://www.flaticon.com/free-icons/treasure" title="treasure icons">Treaure</a>
-  <!-- <link rel="icon" type="image/x-icon" href="pic/logo.png"> -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/form.css">
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </head>
 
 <body>
 
   <header class="header">
-      <a href="#" class="logo"> <span><b>SINA</span>WO</b></a>
+    <a href="#" class="logo"> <span><b>SINA</span>WO</b></a>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#" class="active">
+          <ion-icon name="home-outline"></ion-icon> Home</a></li>
+        <li><a href="#about">
+          <ion-icon name="person-outline"></ion-icon> About</a></li>
+        <li><a href="#experience">
+          <ion-icon name="briefcase-outline"></ion-icon> Experience</a></li>
+        <li><a href="#projects">
+          <ion-icon name="folder-outline"></ion-icon> Projects</a></li>
+        <li><a href="#education">
+          <ion-icon name="school-outline"></ion-icon> Education</a></li>
+      </ul>
+    </nav>
+    <a href="#View/DownloadCV" class="cv">  <ion-icon name="download-outline"></ion-icon> Resume</a>
 
-      <nav class="navbar">
-        <ul>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#education">Education</a></li>
-        </ul>
-      </nav>
-      <a href="#View/Download CV" class="cv">View CV</a>
-
-
-      <!-- Hamburger Menu Icon for Mobile -->
-      <div class="menu-icon" id="menu-icon">
-        <ion-icon name="menu-outline"></ion-icon>
-      </div>
-
-
-
-  </header>
+    <!-- Hamburger Menu Icon for Mobile
+    <div class="menu-icon" id="menu-icon">
+      <ion-icon name="menu-outline"></ion-icon>
+    </div> -->
+</header>>
 
 
 
@@ -65,12 +76,18 @@
         </div>
     </div>
   </section>
-
-
-
   <!-- Experience Section -->
-  <section id="experience" class="experience">
-    <h2>Work Experience</h2>
+  <section id="experience" class="experience-section">
+    <h1></h1>
+
+    <div class="blurry-image">
+        <div class="blurry-text">
+            <h2>Work Experience</h2>
+        </div>
+    </div>
+
+
+
     <div class="timeline">
       <div class="container left">
         <div class="content">
@@ -108,38 +125,58 @@
   </section>
 
   <!-- Projects Section -->
-<!-- Projects Section -->
-<section id="projects" class="projects-section">
-  <div class="project-container">
-      <div class="project-content">
-          <img src="pic/AnalysisProject.png" alt="Automobile Website" class="project-image">
-          <div class="project-text">
-              <h3>Analysis of the Automobile Website</h3>
-              <p>Gathered data from an automobile website using Python, stored it in an MS datastore, and built a model to extract business insights. Automated the process using a pipeline and created dashboards with Power BI.</p>
-          </div>
-      </div>
-      <div class="project-content">
-          <img src="pic/ChatbotProject" alt="Rasa NLU Chatbot" class="project-image">
-          <div class="project-text">
-              <h3>Rasa NLU Chatbot</h3>
-              <p>Developed a conversational AI system using the Rasa framework to assist users on a job portal website with FAQs and navigation support.</p>
-          </div>
-      </div>
-      <div class="project-content">
-          <img src="pic/ScrapingProject.jpg" alt="Questions Summary Project" class="project-image">
-          <div class="project-text">
-              <h3>Questions Summary Project</h3>
-              <p>Summarized all questions asked related to different projects, including data analysis, web development, and e-commerce.</p>
-          </div>
-      </div>
+  <!-- <section class="empty-space">
+    <div class="section-heading">
+      <h2>Projects</h2>
+  </div> -->
+
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="section-heading">
+      <h2>Projects</h2>
   </div>
-</section>
+
+
+      <div class="project-container">
+          <div class="project-item">
+              <div class="project-image">
+                  <img src="pic/AnalysisProject.png" alt="Automobile Website">
+              </div>
+              <div class="project-text">
+                  <h3>Analysis of the Automobile Website</h3>
+                  <p>Gathered data from an automobile website using Python, stored it in an MS datastore, and built a model to extract business insights. Automated the process using a pipeline and created dashboards with Power BI.</p>
+              </div>
+          </div>
+          <div class="project-item">
+              <div class="project-image">
+                  <img src="pic/ChatbotProject.png" alt="Rasa NLU Chatbot">
+              </div>
+              <div class="project-text">
+                  <h3>Rasa NLU Chatbot</h3>
+                  <p>Developed a conversational AI system using the Rasa framework to assist users on a job portal website with FAQs and navigation support.</p>
+              </div>
+          </div>
+          <div class="project-item">
+              <div class="project-image">
+                  <img src="pic/ScrapingProject.jpg" alt="Questions Summary Project">
+              </div>
+              <div class="project-text">
+                  <h3>Questions Summary Project</h3>
+                  <p>Summarized all questions asked related to different projects, including data analysis, web development, and e-commerce.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+
 
 
 
   <!-- Contact Section -->
   <section id="contact" class="form">
-    <h2>Contact Me</h2>
+
     <div class="form-container">
       <form>
           <h2>Let's Chat</h2>
@@ -174,7 +211,7 @@
           <li><a href="#">Blog</a></li>
         </ul>
       </div>
-      
+
       <div class="footer-column">
         <h4>INFORMATION</h4>
         <ul>
@@ -186,7 +223,7 @@
           <li><a href="#">Freepik brand guidelines</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-column">
         <h4>LEGAL</h4>
         <ul>
@@ -198,7 +235,7 @@
           <li><a href="#">Cookies Settings</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-column">
         <h4>SUPPORT</h4>
         <ul>
@@ -207,7 +244,7 @@
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
-  
+
       <div class="footer-column">
         <h4>SOCIAL MEDIA</h4>
         <div class="social-media-icons">
@@ -224,7 +261,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="footer-bottom">
       <p>© 2010-2024 Freepik Company S.L. All rights reserved.</p>
       <div class="language-selector">
@@ -232,7 +269,7 @@
       </div>
     </div>
   </footer>
-  
+
 
 
 
