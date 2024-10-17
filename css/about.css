@@ -1,0 +1,89 @@
+/* General styling for the About section */
+.about-section {
+    padding: 80px 10%; /* Padding to create space around the section */
+    text-align: center; /* Center the section content */
+}
+
+.container-about {
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.about-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333; /* Dark text for heading */
+    font-weight: bold;
+    text-transform: uppercase; /* Capitalize the heading */
+}
+
+/* About content styling */
+.about-content {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: flex-start;
+}
+
+.about-text {
+    max-width: 800px; /* Limit the width of the about text */
+    text-align: left; /* Align text to the left */
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444; /* Slightly lighter text color for readability */
+    padding: 20px;
+    background-color: #fff; /* White background for the text box */
+    border-radius: 8px; /* Rounded corners for the text box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Styling the strong elements (headings inside text) */
+.about-text strong {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Unordered list for skills */
+.about-text ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #444;
+}
+
+.about-text ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Contact information styling */
+.about-text a {
+    color: orangered; /* Color for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .about-section {
+        padding: 40px 5%;
+    }
+
+    .about-text {
+        max-width: 100%; /* Make the text box take full width on smaller screens */
+        padding: 20px;
+    }
+
+    .about-section h2 {
+        font-size: 28px;
+    }
+
+    .about-text strong {
+        font-size: 18px;
+    }
+}
