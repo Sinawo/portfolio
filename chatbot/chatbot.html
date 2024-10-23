@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Chatbot</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+    <!-- 
+     Defere tells the browser to wait until the page has finnished parsing before executing the script 
+     parsing is the process of reading and representing JavaScript code as a data structure,
+     
+     
+        while executing is the process of running the code:
+        The execution phase is when the actual code is run. The JavaScript engine reads the code in the current Execution Context, updates the variable values, and then executes the code. 
+
+        WHY? 
+        The speed at which a page parses, compiles, and executes can impact the page's start-up performance.
+    
+    -->
+    <script src="scripts/chat-handler-script.js" defer></script>
+</head>
+
+<body>
+    <!-- This will be the chatbox -->
+    <div id="chatbox">
+
+        <!-- the chat messages list -->
+        <ul id="message-list"></ul>
+
+
+    </div>
+
+
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button id="send-btn">Send</button>
+
+
+
+
+
+</body>
+
+</html>
