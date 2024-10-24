@@ -56,75 +56,11 @@ span{
     color: orangered;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-}
-
-.navbar a {
-    font-size: 16px;
-    font-weight: bold;
-    color: darkslategray;
-    margin: 0 25px;
-    border-bottom: 3px solid transparent;
-    transition: 0.3s ease;
-}
-
-.navbar a:hover {
-    border-radius: 50px;
-    color: orangered;
-    border-bottom: 3px solid orangered;
-    transition: all 0.3s ease;
-}
-
-.navbar ul {
-    display: flex;
-    gap: 30px;
-}
-
-.navbar ul li {
-    list-style: none;
-}
 
 
 
-/* Hamburger Menu for Mobile */
-.menu-icon {
-    /* display: none; */
-    font-size: 800px;
-    /* color: darkslategray; */
-    color: black;
-    cursor: pointer;
-}
 
 
-/* Responsive Styling */
-@media screen and (max-width: 768px) {
-    .navbar ul {
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: white;
-        width: 200px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .navbar ul.show {
-        transform: translateX(0);
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .contact {
-        display: none;
-    }
-}
 
 
 
@@ -533,3 +469,15 @@ footer {
   .language-selector button:hover {
     background-color: #555;
   }
+
+  .project-text a {
+    color: orangered; /* Set the text color to orangered */
+    font-weight: bold; /* Make the link bold */
+    text-decoration: none; /* Remove the underline */
+    transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.project-text a:hover {
+    color: darkorange; /* Change the color when hovered */
+    text-decoration: underline; /* Add an underline when hovered */
+}

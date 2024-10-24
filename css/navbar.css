@@ -1,3 +1,4 @@
+/* General Styling for Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -30,8 +31,7 @@
     list-style: none;
 }
 
-
-
+/* CV button styling */
 .cv {
     padding: 10px;
     background-color: orangered;
@@ -44,15 +44,67 @@
     align-items: center;
     text-decoration: none;
     font-size: 16px;
-
 }
 
 .cv:hover {
     background-color: rgb(59, 174, 209);
     box-shadow: 0 0 25px rgb(59, 174, 209);
-    transform: scale(1.2)
+    transform: scale(1.2);
 }
 
 .cv ion-icon {
     margin-right: 5px; /* Adds space between icon and text */
+}
+
+/* Hide the checkbox (toggle) */
+.menu-toggle {
+    display: none;
+}
+
+/* Hamburger menu button */
+.icon {
+    display: none; /* Hide the hamburger icon by default */
+    font-size: 25px;
+    cursor: pointer;
+    color: darkslategray;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .navbar ul {
+        display: none; /* Hide the menu by default on small screens */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #f8f9fa; /* Background color for visibility */
+        width: 200px;
+        padding: 5px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for visibility */
+    }
+
+    .navbar ul li {
+        margin: 10px 0;
+    }
+
+    .header li a {
+        padding: 10px;
+    }
+
+    /* Show the hamburger icon on small screens */
+    .icon {
+        display: block;
+    }
+}
+
+/* Styles for larger screens (default) */
+@media screen and (min-width: 769px) {
+    .navbar ul {
+        display: flex; /* Show the menu for larger screens */
+        flex-direction: row; /* Horizontal layout */
+        position: static; /* Reset positioning */
+        background: transparent; /* Remove background */
+        padding: 0; /* Remove padding */
+        box-shadow: none; /* Remove shadow */
+    }
 }
