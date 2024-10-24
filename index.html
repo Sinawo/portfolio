@@ -332,28 +332,31 @@
   <script>
     const menuToggle = document.querySelector('#menu-toggle');
     const navList = document.querySelector('#nav-list');
-
-    // Hide the menu by default
-    navList.style.display = 'none';
-
-    // Add event listener to toggle menu on click
+  
+    // Function to set the correct display state on page load and window resize
+    function setNavDisplay() {
+      if (window.innerWidth > 768) {
+        navList.style.display = 'flex'; // Show the nav menu for large screens
+      } else {
+        navList.style.display = 'none'; // Hide the nav menu for small screens
+      }
+    }
+  
+    // Run on page load
+    setNavDisplay();
+  
+    // Add event listener to toggle the menu on click
     menuToggle.addEventListener('click', function() {
-        if (navList.style.display === 'none' || navList.style.display === '') {
-            navList.style.display = 'block'; // Show the menu
-        } else {
-            navList.style.display = 'none'; // Hide the menu
-        }
+      if (navList.style.display === 'none' || navList.style.display === '') {
+        navList.style.display = 'block'; // Show the menu
+      } else {
+        navList.style.display = 'none'; // Hide the menu
+      }
     });
-
-    // Optional: Reset the menu display on window resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            navList.style.display = 'flex'; // Show the menu in flex layout for larger screens
-        } else {
-            navList.style.display = 'none'; // Hide the menu for small screens
-        }
-    });
-</script>
+  
+    // Run the function whenever the window is resized
+    window.addEventListener('resize', setNavDisplay);
+  </script>
 
 
 
