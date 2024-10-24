@@ -1,7 +1,8 @@
 .timeline {
     position: relative;
     max-width: 1200px;
-    margin: 0 auto; /* Center the content horizontally */
+    margin: 0 auto;
+    /* Center the content horizontally */
 }
 
 .experience-section {
@@ -13,7 +14,8 @@
 .experience-section h1 {
     background-size: cover;
     background-position: center;
-    filter: blur(5px); /* Make the image blurry */
+    filter: blur(5px);
+    /* Make the image blurry */
     text-align: center;
     font-size: 3rem;
     padding-top: 10px;
@@ -23,10 +25,8 @@
 .blurry-image {
     position: relative;
     height: 300px;
-    /* background-image: url('../pic/bg3.jpg'); */
     background-size: cover;
     background-position: center;
-    /* filter: blur(5px); Make the image blurry */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@
 
 .blurry-text {
     position: absolute;
-    color:orangered;
+    color: orangered;
     font-size: 2rem;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.767);
     z-index: 1;
@@ -111,5 +111,10 @@
 
     .container.right {
         left: 0;
+    }
+
+    /* Hide the dots on small screens */
+    .container::after {
+        display: none;
     }
 }
