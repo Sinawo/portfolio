@@ -23,6 +23,12 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+   <!-- Chatbot CSS -->
+  <link rel="stylesheet" href="chatbot/bot-styles/style.css">
+  <!-- Chatbot Script -->
+  <script src="chatbot/bot-scripts/chat-handler-script.js" defer></script>
+
+
 </head>
 
 <body>
@@ -257,6 +263,46 @@
     </div>
 
   </section>
+
+
+      <!-- Chatbot Container -->
+      <div class="chatbot-container">
+        <!-- Chat toggle button -->
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded">mode_comment</span>
+            <span class="material-symbols-outlined">close</span>
+        </button>
+
+        <!-- Chatbot widget -->
+        <div class="chatbot">
+            <!-- Chatbot header -->
+            <header>
+                <h2>Chatbot</h2>
+                <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+
+            <!-- Chat messages -->
+            <ul class="chatbox">
+                <li class="chat incoming">
+                    <span class="material-symbols-outlined">smart_toy</span>
+                    <p>Hi there!<br>How can I help you today?</p>
+                </li>
+            </ul>
+
+            <!-- User input area -->
+            <div class="chat-input">
+                <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+                <span id="send-btn" class="material-symbols-rounded">send</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
   <footer>
 
