@@ -37,21 +37,20 @@
     <button class="chatbot-toggler">
         <span class="material-symbols-rounded">mode_comment</span>
         <span class="material-symbols-outlined"> close</span>
-
     </button>
 
     <!-- Chatbot itself -->
     <div class="chatbot">
 
         <!--chatbot header -->
-        <header class="chatbot-header">
-            <h2>Lumnka</h2>
+        <header>
+            <h2>Chatbot</h2>
             <!-- close button fom the header -->
             <span class="close-btn material-symbols-outlined">close</span>
         </header>
 
         <!-- the chat messages list -->
-        <ul id="message-list">
+        <ul class="chatbox">
             <!-- "chat incoming" class -> is the message coming from the bot -->
             <li class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
@@ -64,9 +63,7 @@
             <span id="send-btn" class="material-symbols-rounded">send</span>
         </div>
 
-        <!-- user's input 2 (alt)  -->
-        <input type="text" id="user-input" placeholder="Type a message..." />
-        <button id="send-btn">Send</button>
+
 
     </div> <!-- Chatbot itself -->
 
