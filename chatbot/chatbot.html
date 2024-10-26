@@ -30,18 +30,18 @@
     -->
 
     <script src="scripts/chat-handler-script.js" defer></script>
-    <link rel="stylesheet" href="bot-styles/style.css">
+    <link rel="stylesheet" href="bot-styles/demo-style.css">
 
 </head>
 
-<body>
+<body class="show-chatbot">
 
-    <!-- open/close chat buttons -->
+    <!-- open/close chat buttons  | Chatbot Toggler -->
     <button class="chatbot-toggler">
         <span class="material-symbols-rounded">mode_comment</span>
         <span class="material-symbols-outlined"> close</span>
     </button>
-    
+
 
     <!-- Chatbot itself -->
     <div class="chatbot">
@@ -57,8 +57,14 @@
             <!-- "chat incoming" class -> is the message coming from the bot -->
             <li class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hi there <br>How can I help you today?</p>
+                <p>Hi there👋 <br>How can I help you today?</p>
             </li>
+
+            <li class="chat outgoing">
+                <p>This is message from the user</p>
+            </li>
+
+
         </ul>
         <!-- user's input box  -->
         <div class="chat-input">
