@@ -15,6 +15,7 @@
     overflow: hidden;
     background-color: #fff;
     transition: transform 0.3s ease;
+    z-index: 1;
 }
 
 /* Show the chatbot when .show-chatbot is added to the body */
