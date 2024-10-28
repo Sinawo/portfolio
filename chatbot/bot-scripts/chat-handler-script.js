@@ -7,55 +7,45 @@ const sendChatBtn = document.querySelector(".chat-input span");
 let userMessage = null; // Variable to store user's message
 const inputInitHeight = chatInput.scrollHeight;
 
-// API configuration
-const API_KEY = "PASTE-YOUR-API-KEY"; // Your API key here
-const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
-
+//a fuction to appe
 const createChatLi = (message, className) => {
   // Create a chat <li> element with passed message and className
   const chatLi = document.createElement("li");
+
   chatLi.classList.add("chat", `${className}`);
+  //if the class name is outgoing(message from the user) add the paragraph element <p></p>. 
   let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+  
+
+
+
   chatLi.innerHTML = chatContent;
+
   chatLi.querySelector("p").textContent = message;
+
   return chatLi; // return chat <li> element
 }
+//generate response 
 
 const generateResponse = async (chatElement) => {
-  const messageElement = chatElement.querySelector("p");
+    // this what we are going to use to replace thatt Thinking... <li><p> </p></li>
+    const messageElement = chatElement.querySelector("p");
+  
 
-  // Define the properties and message for the API request
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ 
-      contents: [{ 
-        role: "user", 
-        parts: [{ text: userMessage }] 
-      }] 
-    }),
+
   }
 
-  // Send POST request to API, get response and set the reponse as paragraph text
-  try {
-    const response = await fetch(API_URL, requestOptions);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
-    
-    // Get the API response text and update the message element
-    messageElement.textContent = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
-  } catch (error) {
-    // Handle error
-    messageElement.classList.add("error");
-    messageElement.textContent = error.message;
-  } finally {
-    chatbox.scrollTo(0, chatbox.scrollHeight);
-  }
-}
+
+
 
 const handleChat = () => {
   userMessage = chatInput.value.trim(); // Get user entered message and remove extra whitespace
+  console.log(!userMessage);
+  
+  //if the message is empty dont return anything
+  //if (userMessage == "") return; 
   if (!userMessage) return;
+
 
   // Clear the input textarea and set its height to default
   chatInput.value = "";
@@ -63,14 +53,19 @@ const handleChat = () => {
 
   // Append the user's message to the chatbox
   chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
   setTimeout(() => {
     // Display "Thinking..." message while waiting for the response
     const incomingChatLi = createChatLi("Thinking...", "incoming");
+    // This is more like a place holder list element 
     chatbox.appendChild(incomingChatLi);
+
     chatbox.scrollTo(0, chatbox.scrollHeight);
-    generateResponse(incomingChatLi);
+
+    // This method right here does not exist to gererate a response you will have to create you own
+     generateResponse(incomingChatLi);
   }, 600);
 }
 
@@ -89,6 +84,8 @@ chatInput.addEventListener("keydown", (e) => {
   }
 });
 
+//  1. The code execution starts here, when the send icon is cliked. then hancdleChat function is called
 sendChatBtn.addEventListener("click", handleChat);
+
 closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));

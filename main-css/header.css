@@ -5,7 +5,7 @@
     width: 100%;
     padding: 15px 12%;
     backdrop-filter: blur(10px);
-    background: url(../pic/bg1.jpg);
+    background: url(../main-images/bg1.jpg);
     background-size: cover;
     display: flex;
     justify-content: space-between;
