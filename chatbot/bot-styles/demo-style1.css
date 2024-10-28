@@ -1,0 +1,259 @@
+/* Importing Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+
+
+/* Initially hide the chatbot
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+} */
+
+.chatbot {
+    position: fixed; 
+    width: 420px;     
+    right: 40px;
+    bottom: 100px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    transform: scale(0.5);   /* here to reduce the chatbot toggler */
+    opacity: 0;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.chatbot header{
+     background: orangered;
+     padding: 16px 0;
+     text-align: center;
+     position: relative;
+
+
+
+}
+/* the heading text format */
+.chatbot header h2 {
+    color: #fff;
+    font-size: 1.4rm;
+}
+
+.chatbot header span{
+    position: absolute;
+    right: 20px;
+    top:20px;
+    display: none;  /* hidding the close button for large screens */
+    transform: translate(-50%);
+    color: #f2f2f2;
+}
+
+
+/* the chat messages list */
+.chatbot .chatbox{
+    height: 510px;    /*  this is the ul class="chatbox"> height */
+    overflow-y: auto;
+    padding: 30px 20px 70px;
+
+} /* This is the incoming messages organised in a unordered list */   
+
+
+/* the inner messages with the list <li class="chat incoming"> */
+.chatbox .chat {
+    display: flex;
+}
+
+/* the text within the list container */  
+.chatbox .chat p {
+    padding: 10px 16px;
+    background: orangered;
+    border-radius: 10px 10px 0 10px;
+    color: #fff;
+    font-size: 0.95rem;
+    max-width: 75%;
+} /* this is fo all the paragraphs within the list */ 
+
+
+/* Now we'll have to overwrite some rules to differintiate between bot & user messages */
+
+
+
+/* the text comming from the bot within the list container */  
+.chatbox .incoming p{
+
+    color: black;
+    background: #f2f2f2;
+    border-radius: 10px 10px 10px 0;
+}
+
+/* the text comming from the user within the list container */  
+.chatbox .outgoing {
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.chatbox .incoming span{
+    height: 32px;
+    width: 32px;
+    align-self: flex-end;
+    background: orangered;
+    text-align: center;
+    border-radius: 4px;
+    color: #f2f2f2;
+    margin: 8px 10px 8px 0 ;
+}
+
+.chatbot .chat-input{
+    position:  absolute;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+    width: 100% ;
+    padding: 5px 20px;
+    display: flex;
+    gap: 5px;
+
+
+}
+
+
+.chat-input textarea{
+    height: 55px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 0.95rem;
+    resize: none;
+    padding: 16px 15px 16px 0;
+
+}
+.chat-input span{
+    color: orangered;
+    font-size: 1.35;
+    cursor: pointer;
+    align-self: flex-end;
+    height: 55px;
+    line-height: 55px;
+    visibility: hidden; /* at first this will hidden */
+
+}
+
+.chat-input textarea:valid ~ span{
+    visibility: visible;
+}
+
+.chatbot-toggler {
+    position:fixed;
+    right: 40px;
+    bottom: 35px;
+    display: flex;
+    outline: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+
+    background-color: orangered;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.show-chatbot .chatbot{
+    transform: scale(1);   /* here to reduce the chatbot toggler */
+    opacity: 1;
+    pointer-events:  auto;
+}
+
+
+
+
+.chatbot-toggler span{
+   position:absolute;
+}
+
+.show-chatbot .chatbot-toggler span:first-child,
+.chatbot-toggler span:last-child{
+    opacity: 0;
+}
+
+.show-chatbot .chatbot-toggler span:last-child {
+    opacity: 1;
+}
+
+@media(max-width:490px){
+    .chatbot
+    {
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 80%;
+        border-radius: 0;
+    }
+    .chatbot .chatbox{
+        height: 90%;
+
+    }
+    .chatbot header span{
+        display: block;
+        
+    }
+} 
+
+
+
+/* .chat-menu {
+    position: absolute; /* Allows for absolute positioning of inner elements 
+} */
+
+.menu-header {
+    background: orangered;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Aligns items vertically */
+    cursor: pointer;
+}
+
+.menu-title {
+    margin-right: auto; /* Pushes the title to the left */
+}
+
+.arrow {
+    margin-left: 10px; /* Adds space between the title and arrow */
+}
+
+.menu-content {
+    max-height: 200px; /* Start hidden */
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+.menu-content ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.menu-content li {
+    padding: 5px 0;
+    color: black;
+}
+
+/* Expanded menu */
+.menu-content.show {
+    max-height: 200px; /* Adjust this value as needed */
+}
