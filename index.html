@@ -29,7 +29,8 @@
    <!-- Chatbot CSS -->
   <link rel="stylesheet" href="chatbot/bot-styles/demo-style.css">
   <!-- Chatbot Script -->
-  <script src="chatbot/bot-scripts/chat-handler-script.js" defer></script>
+  <!-- <script src="chatbot/bot-scripts/chat-handler-script.js" defer></script> -->
+  <script src="chatbot/bot-scripts/script.js" defer></script>
 
 </head>
 
@@ -279,7 +280,7 @@
       <!--chatbot header -->
       <header>
           <h2>Chatbot</h2>
-          <!-- close button fom the header -->
+          <!-- close button in the header -->
           <span class="close-btn material-symbols-outlined">close</span>
       </header>
 
@@ -290,16 +291,28 @@
               <span class="material-symbols-outlined">smart_toy</span>
               <p>Hi there👋 <br>How can I help you today?</p>
           </li>
-          
+          <!-- The message from the user  class="chat outgoing" -->
           <li class="chat outgoing">
               <p>This is message from the user</p>
           </li>
+
+                  <!-- HR-specific options as clickable elements -->
+        <!-- <li class="chat options">
+            <p>Here are a few things I can help with:</p>
+            <button class="chat-option" onclick="selectOption('Can you tell me about yourself?')">About You</button>
+            <button class="chat-option" onclick="selectOption('What technical skills do you possess?')">Technical Skills</button>
+            <button class="chat-option" onclick="selectOption('Can you describe a recent project you completed?')">Work Experience</button>
+            <button class="chat-option" onclick="selectOption('What are your career goals?')">Career Goals</button>
+            <button class="chat-option" onclick="selectOption('Are you open to remote work or relocation?')">Availability</button>
+            <button class="chat-option" onclick="selectOption('How would you describe your communication skills?')">Soft Skills</button>
+        </li> -->
 
 
       </ul>
       <!-- user's input box  -->
       <div class="chat-input">
           <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+          <!-- to send a message  -->
           <span id="send-btn" class="material-symbols-rounded">send</span>
       </div>
 
