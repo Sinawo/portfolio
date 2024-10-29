@@ -9,6 +9,52 @@
 
 }
 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 12%;
+    backdrop-filter: blur(10px); /* Corrected the filter function */
+    background: url(pic/bg1.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+/* correct */
+
+
+
+.logo {
+    font-size: 25px;
+    color: darkslategray;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+/* correct */
+
+
+
+
+.logo:hover{
+    color:orangered;
+    box-shadow: 0 0 25px orangered;
+    text-shadow: 0 0 25px orangered,
+                 0 0 50 orangered; 
+    transform: scale(1.1);
+    transition:  transform 0.3s ease; 
+    border: 3px solid orangered ;
+}
+
+
+
+
+span{
+    color: orangered;
+}
 
 
 
@@ -16,6 +62,71 @@
 
 
 
+
+
+
+/*--------------------------HOME CONTENT Styles-------------------------------------------- */
+
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:78px 12%;
+    min-height: 100vh;
+    background-size: cover;
+}
+
+.home-content h3, .home-content h1, .home-content p {
+    max-width: 800px;
+    margin: 0 auto; /* Center the content horizontally */
+    text-align: left;
+ 
+}
+.home-content{
+    max-width: 800px;
+    margin-right: auto;
+}
+.home-content h3{
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.home-content h1{
+    font-size: 62px;
+    line-height: 1.2;
+}
+
+.home-content p{
+    font-size: 18px;
+    margin: 20px 0 30px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .home {
+        padding: 40px 5%; /* Reduce padding on smaller screens */
+    }
+
+    .home-content h3 {
+        font-size: 36px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .btn-box {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px;
+    }
+
+    .img {
+        display: none; /* Hide image on smaller screens */
+    }
+}
 
 
 
@@ -82,7 +193,6 @@
     transition: left 2s ease;
     border-radius: 50%;
     width: auto;
-
 }
 
 /* Hide the image when overlap might occur */

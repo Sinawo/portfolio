@@ -10,14 +10,6 @@
 
 
 
-/* Initially hide the chatbot
-.chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-} */
-
 .chatbot {
     position: fixed; 
     width: 420px;     
@@ -50,7 +42,7 @@
     font-size: 1.4rm;
 }
 
-/* close button  */
+/* close button for small screens */
 .chatbot header span{
     position: absolute;
     right: 20px;
@@ -138,6 +130,7 @@
     padding: 16px 15px 16px 0;
 
 }
+/* where the user types */
 .chat-input span{
     color: orangered;
     font-size: 1.35;
