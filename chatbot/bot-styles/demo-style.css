@@ -10,14 +10,6 @@
 
 
 
-/* Initially hide the chatbot
-.chatbot-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-} */
-
 .chatbot {
     position: fixed; 
     width: 420px;     
@@ -50,7 +42,7 @@
     font-size: 1.4rm;
 }
 
-/* close button  */
+/* close button for small screens */
 .chatbot header span{
     position: absolute;
     right: 20px;
@@ -86,6 +78,7 @@
 } /* this is fo all the paragraphs within the list */ 
 
 
+
 /* Now we'll have to overwrite some rules to differintiate between bot & user messages */
 
 
@@ -98,6 +91,20 @@
     border-radius: 10px 10px 10px 0;
 }
 
+.chatbox .option-btn{
+    
+    color: black;
+    background: #f2f2f2;
+    border-radius: 10px 10px 10px 0;
+    border: none;
+    padding: 10px 16px;
+    margin: 3px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.option-btn:hover {
+    background-color: darkorange;
+}
 /* the text comming from the user within the list container */  
 .chatbox .outgoing {
     justify-content: flex-end;
@@ -138,6 +145,7 @@
     padding: 16px 15px 16px 0;
 
 }
+/* where the user types */
 .chat-input span{
     color: orangered;
     font-size: 1.35;
@@ -193,6 +201,18 @@
     opacity: 1;
 }
 
+/* Media query for screens with limited vertical height */
+@media (max-height: 600px) {
+    .chatbot {
+        width: 90%;
+        height: 90vh; /* Adjust chatbot to fit within 90% of the view height */
+        bottom: 5vh; /* Keep some padding at the bottom */
+    }
+    .chatbox {
+        height: calc(90vh - 140px); /* Dynamically calculate space for chat content */
+    }
+}
+
 
 @media(max-width:490px){
     .chatbot
@@ -216,29 +236,4 @@
 
 
 
-/* 
-/* Show the chatbot when .show-chatbot is added to the body 
-.show-chatbot .chatbot {
-    display: block;
-}
 
-Chatbot toggle button
-.chatbot-toggler {
-    background-color: orangered;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    cursor: pointer;
-    font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Close button styling 
-.close-btn {
-    cursor: pointer;
-} */

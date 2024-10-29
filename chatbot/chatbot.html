@@ -22,14 +22,9 @@
         The speed at which a page parses, compiles, and executes can impact the page's start-up performance.
     
     2. We are using GOOGLE FONTS and ICONS
-
-
-
-
-
     -->
 
-    <script src="scripts/chat-handler-script.js" defer></script>
+    <script src="bot-scripts/chat-handler-script.js" defer></script>
     <link rel="stylesheet" href="bot-styles/demo-style.css">
 
 </head>
@@ -46,7 +41,9 @@
     <!-- Chatbot itself -->
     <div class="chatbot">
         <!--chatbot header -->
-        <header>
+
+        <header class="chatbot-header">
+
             <h2>Chatbot</h2>
             <!-- close button fom the header -->
             <span class="close-btn material-symbols-outlined">close</span>
@@ -57,7 +54,9 @@
             <!-- "chat incoming" class -> is the message coming from the bot -->
             <li class="chat incoming">
                 <span class="material-symbols-outlined">smart_toy</span>
+
                 <p>Hi there👋 <br>How can I help you today?</p>
+
             </li>
 
             <li class="chat outgoing">
@@ -66,13 +65,12 @@
 
 
         </ul>
+
         <!-- user's input box  -->
         <div class="chat-input">
             <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
             <span id="send-btn" class="material-symbols-rounded">send</span>
         </div>
-
-
 
     </div> <!-- Chatbot itself -->
 
