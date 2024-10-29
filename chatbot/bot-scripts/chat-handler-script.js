@@ -7,7 +7,12 @@ const sendChatBtn = document.querySelector(".chat-input span");
 let userMessage = null; // Variable to store user's message
 const inputInitHeight = chatInput.scrollHeight;
 
-//a fuction to appe
+
+// script.js
+
+
+
+// Function to create chat list item (RESPONSES)
 const createChatLi = (message, className) => {
   // Create a chat <li> element with passed message and className
   const chatLi = document.createElement("li");

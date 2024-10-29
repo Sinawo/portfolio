@@ -9,14 +9,13 @@ const inputInitHeight = chatInput.scrollHeight;
 
 // Predefined options for HR questions
 const hrQuestions = [
-  "🧑 Tell me about yourself",
-  "💻 What technical skills do you possess?",
-  "📊 Can you describe a recent project you completed?",
-  "🧩 How do you approach problem-solving?",
-  "🎯 What are your career goals?",
-  "🌍 Are you open to remote work or relocation?",
-  "🗣️ How would you describe your communication skills?"
-
+  "Tell me about yourself",
+  "What technical skills do you possess?",
+  "Can you describe a recent project you completed?",
+  "How do you approach problem-solving?",
+  "What are your career goals?",
+  "Are you open to remote work or relocation?",
+  "How would you describe your communication skills?"
 ];
 
 // Function to display HR options as buttons

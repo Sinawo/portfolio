@@ -78,6 +78,7 @@
 } /* this is fo all the paragraphs within the list */ 
 
 
+
 /* Now we'll have to overwrite some rules to differintiate between bot & user messages */
 
 
@@ -90,6 +91,20 @@
     border-radius: 10px 10px 10px 0;
 }
 
+.chatbox .option-btn{
+    
+    color: black;
+    background: #f2f2f2;
+    border-radius: 10px 10px 10px 0;
+    border: none;
+    padding: 10px 16px;
+    margin: 3px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.option-btn:hover {
+    background-color: darkorange;
+}
 /* the text comming from the user within the list container */  
 .chatbox .outgoing {
     justify-content: flex-end;

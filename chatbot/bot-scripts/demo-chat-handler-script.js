@@ -42,41 +42,10 @@ const generateBotResponse = async (incomingMessageDiv) => {
     parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
   });
 
-  // API request options
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      contents: chatHistory,
-    }),
-  };
 
-  try {
-    // Fetch bot response from API
-    const response = await fetch(API_URL, requestOptions);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
 
-    // Extract and display bot's response text
-    const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
-    messageElement.innerText = apiResponseText;
 
-    // Add bot response to chat history
-    chatHistory.push({
-      role: "model",
-      parts: [{ text: apiResponseText }],
-    });
-  } catch (error) {
-    // Handle error in API response
-    console.log(error);
-    messageElement.innerText = error.message;
-    messageElement.style.color = "#ff0000";
-  } finally {
-    // Reset user's file data, removing thinking indicator and scroll chat to bottom
-    userData.file = {};
-    incomingMessageDiv.classList.remove("thinking");
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: "smooth" });
-  }
+
 };
 
 // Handle outgoing user messages
@@ -182,5 +151,7 @@ document.querySelector(".chat-form").appendChild(picker);
 
 sendMessage.addEventListener("click", (e) => handleOutgoingMessage(e));
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
-closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+sendChatBtn.addEventListener("click", handleChat);
+
+closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
