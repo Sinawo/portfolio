@@ -94,13 +94,15 @@
 .chatbox .option-btn{
     
     color: black;
-    background: #f2f2f2;
+    background: #eceaea;
     border-radius: 10px 10px 10px 0;
     border: none;
     padding: 10px 16px;
     margin: 3px 0;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    font-size: 0.8rem;
 }
 .option-btn:hover {
     background-color: darkorange;
@@ -130,8 +132,6 @@
     padding: 5px 20px;
     display: flex;
     gap: 5px;
-
-
 }
 
 
@@ -223,30 +223,3 @@
 } 
 
 
-
-/* 
-/* Show the chatbot when .show-chatbot is added to the body 
-.show-chatbot .chatbot {
-    display: block;
-}
-
-Chatbot toggle button
-.chatbot-toggler {
-    background-color: orangered;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    cursor: pointer;
-    font-size: 24px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Close button styling 
-.close-btn {
-    cursor: pointer;
-} */
