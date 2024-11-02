@@ -65,6 +65,7 @@
 /* the inner messages with the list <li class="chat incoming"> */
 .chatbox .chat {
     display: flex;
+    
 }
 
 /* the text within the list container */  
@@ -89,6 +90,7 @@
     color: black;
     background: #f2f2f2;
     border-radius: 10px 10px 10px 0;
+    margin: 20px;
 }
 
 .chatbox .option-btn{
@@ -109,6 +111,7 @@
 .chatbox .outgoing {
     justify-content: flex-end;
     margin: 20px 0;
+
 }
 
 .chatbox .incoming span{
@@ -200,6 +203,10 @@
 .show-chatbot .chatbot-toggler span:last-child {
     opacity: 1;
 }
+
+
+/* Style for the Back to Main Menu message */
+
 
 /* Media query for screens with limited vertical height */
 @media (max-height: 600px) {
