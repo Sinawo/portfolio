@@ -89,6 +89,5 @@ chatInput.addEventListener("keydown", (e) => {
 
 //  1. The code execution starts here, when the send icon is cliked. then hancdleChat function is called
 sendChatBtn.addEventListener("click", handleChat);
-
 closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));

@@ -8,9 +8,21 @@
   font-family: "Inter", sans-serif;
 }
 
+/* Style for the "Back to Main Menu" outgoing message */
+/* Style for the "Back to Main Menu" outgoing message */
+.chat .back-message p {
+    background-color: #242676; /* Dark blue background */
+    color: #ffffff; /* White text */
+    padding: 10px 16px;
+
+    font-weight: bold;
+    max-width: 100%;
+}
+
 
 
 .chatbot {
+    display: block;
     position: fixed; 
     width: 420px;     
     right: 40px;
@@ -26,6 +38,7 @@
     pointer-events: none;
     z-index: 100;
 }
+
 
 .chatbot header{
      background: orangered;
@@ -47,9 +60,10 @@
     position: absolute;
     right: 20px;
     top:20px;
-    display: none;  /* hidding the close button for large screens */
+    display: block;  /* hidding the close button for large screens */
     transform: translate(-50%);
     color: #f2f2f2;
+    cursor:pointer;
 }
 
 
@@ -104,6 +118,25 @@
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
+.final-btn{
+
+    color: black;
+    background: #f2f2f2;
+    border-radius: 10px 10px 10px 0;
+
+    border: none;
+    padding: 10px 16px;
+    margin: 3px 0;
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .option-btn:hover {
     background-color: darkorange;
 }
@@ -173,15 +206,20 @@
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    background-color: orangered;
+    background: orangered;
+    color:#f2f2f2;
     border: none;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    color: #fff;
+  
     font-size: 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+}
+.chatbot-toggler  span{
+    background: orangered;
+    color:#f2f2f2;
 }
 
 .show-chatbot .chatbot{
@@ -244,3 +282,31 @@
 
 
 
+/* Container for final options buttons */
+.final-options-container {
+    display: flex;
+    justify-content: center; /* Center align the entire button row */
+    gap: 5px;
+    width: 100%; /* Ensures the buttons row spans the container width */
+    margin: 0 auto; /* Center-align the container within the chatbot */
+  }
+  
+  /* Style for each final button */
+  .final-btn {
+    flex: 1; /* Allows each button to take up an equal amount of space */
+    max-width: 100px; /* Limits the width of each button to keep them compact */
+    padding: 10px;
+    background-color: #f2f2f2;
+    color: #4b4b4b;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .final-btn:hover {
+    background-color: darkorange;
+    color: #fff;
+  }
+  
