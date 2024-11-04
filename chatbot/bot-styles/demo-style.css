@@ -132,6 +132,7 @@
     padding: 5px 20px;
     display: flex;
     gap: 5px;
+    background: #f2f2f2;
 }
 
 
@@ -211,9 +212,8 @@
         height: 100%;
         border-radius: 0;
     }
-    .chatbot .chatbox{
-        height: 90%;
-
+    .chatbot .chatbox {
+        height: calc(100% - 140px); /* Dynamic height to ensure the input area is visible */
     }
     /* close button for small screens */
     .chatbot header span{
@@ -222,4 +222,15 @@
     }
 } 
 
+/* Media query for screens with limited vertical height */
+@media (max-height: 600px) {
+    .chatbot {
+        width: 100%;
+        height: 90vh; /* Adjust chatbot to fit within 90% of the view height */
+        bottom: 5vh; /* Keep some padding at the bottom */
+    }
+    .chatbox {
+        height: calc(90vh - 140px); /* Dynamically calculate space for chat content */
+    }
+}
 
