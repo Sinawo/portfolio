@@ -53,3 +53,32 @@ form h2 {
     border-color: orangered;
     outline: none;
 }
+
+
+
+
+/* Button Styles */
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background-color: orangered;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: rgb(59, 174, 209);
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    form {
+        padding: 1.5rem;
+    }
+}

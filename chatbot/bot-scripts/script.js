@@ -3,136 +3,234 @@ const closeBtn = document.querySelector(".close-btn");
 const chatbox = document.querySelector(".chatbox");
 const chatInput = document.querySelector(".chat-input textarea");
 const sendChatBtn = document.querySelector(".chat-input span");
+const greetingMessage = document.querySelector(".chatbot-greeting");
+const closeGreetingBtn = document.querySelector(".close-greeting");
+
+
+
+
+// Close the greeting message when clicking the close button
+closeGreetingBtn.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent triggering chatbot open
+  greetingMessage.style.display = "none";
+});
+
+// Show the chatbot when the greeting is clicked
+greetingMessage.addEventListener("click", () => {
+  greetingMessage.style.display = "none"; // Hide the greeting
+  document.body.classList.add("show-chatbot"); // Show the chatbot
+});
+
 
 let userMessage = null; // Variable to store user's message
 const inputInitHeight = chatInput.scrollHeight;
 
-// Predefined options for HR questions
-const hrQuestions = [
-  "🧑 Tell me about yourself",
-  "💻 What technical skills do you possess?",
-  "📊 Can you describe a recent project you completed?",
-  "🧩 How do you approach problem-solving?",
-  "🎯 What are your career goals?",
-  "🌍 Are you open to remote work or relocation?",
-  "🗣️ How would you describe your communication skills?"
+// Define the initial messages
+const initialMessages = [
+  "Hi I'm Django! Sinawo's Buddy",
+  "I’m Curious What Makes You So Curious. How can I help you today?"
 ];
 
+// Main HR questions
+const hrQuestions = [
+  "🧑 Tell me about Sinawo",
+  "💻 What technical skills does he possess?",
+  "📊 Can you describe his recent project he completed?",
+  "🧩 How does he approach problem-solving?",
+  "🎯 What are Sinawo's career goals?",
+  "🌍 Is he open to remote work or relocation?",
+  "🗣️ How would you describe his communication skills?"
+];
 
 // Sub-questions mapped to main questions
 const subQuestions = {
-    "🧑 Tell me about yourself": [
-    "📚 What is your educational background?",
-    "💼 What previous roles have you held?",
-    "🔍 What are your primary areas of expertise?",
+  "🧑 Tell me about Sinawo": [
+    "📚 What is his educational background?",
+    "💼 What previous roles has he held?",
+    "🔍 What are his primary areas of expertise?",
     "🔙 Back to Main Menu"
   ],
   "💻 What technical skills do you possess?": [
-    "🖥️ What programming languages do you know?",
-    "🛠️ What tools and technologies are you proficient in?",
-    "📊 What databases do you work with?",
+    "🖥️ What programming languages does he know?",
+    "🛠️ What tools and technologies is he proficient in?",
+    "📊 What databases does he work with?",
     "🔙 Back to Main Menu"
   ],
-  // Add similar sub-questions for other main questions if needed
 };
 
 
+// Function to show initial messages with a delay
+const displayInitialMessages = async () => {
+  for (let i = 0; i < initialMessages.length; i++) {
+    // Display "Thinking..." message first
+    const thinkingLi = createChatLi("Thinking...", "incoming");
+    chatbox.appendChild(thinkingLi);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
 
+    // Wait a moment to simulate "Thinking..."
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-// Function to display HR options as buttons
+    // Remove the "Thinking..." message and add the real message
+    thinkingLi.remove();
+    const messageLi = createChatLi(initialMessages[i], "incoming");
+    chatbox.appendChild(messageLi);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    // Wait before showing the next message
+    await new Promise(resolve => setTimeout(resolve, 1500));
+  }
+
+  // Once all messages are shown, display options
+  displayOptions(hrQuestions);
+};
+
+/// Function to display initial HR options as buttons
 const displayOptions = (options) => {
   options.forEach((question) => {
     const optionBtn = document.createElement("button");
     optionBtn.classList.add("option-btn");
     optionBtn.textContent = question;
 
-    // Add click event to send option as user message or show sub-questions
     optionBtn.addEventListener("click", () => {
       if (question === "🔙 Back to Main Menu") {
-        displayOptions(hrQuestions); // Show main menu if back button clicked
+        displayBackToMainMessage();
       } else if (subQuestions[question]) {
-        handleOptionClick(question, subQuestions[question]); // Show sub-questions if available
+        handleOptionClick(question, subQuestions[question]);
       } else {
-        handleOptionClick(question); // Send option as message if no sub-questions
+        handleOptionClick(question);
       }
     });
 
-    // Append each button to the chatbox as a new list item
     const optionLi = document.createElement("li");
     optionLi.classList.add("chat", "incoming");
     optionLi.appendChild(optionBtn);
     chatbox.appendChild(optionLi);
   });
 
-  chatbox.scrollTo(0, chatbox.scrollHeight); // Scroll to the bottom of the chatbox
+  chatbox.scrollTo(0, chatbox.scrollHeight);
 };
 
 
-// Function to create chat list item (RESPONSES)
+// Function to create chat list item for user and bot responses
+// Function to create chat list item
 const createChatLi = (message, className) => {
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", `${className}`);
-  const chatContent = className === "outgoing" 
-    ? `<p></p>` 
-    : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
-  chatLi.innerHTML = chatContent;
-  chatLi.querySelector("p").textContent = message;
+  chatLi.innerHTML = `<span class="material-symbols-outlined">smart_toy</span><p>${message}</p>`;
   return chatLi;
 };
 
 // Function to handle when an HR question option is clicked
 const handleOptionClick = (question, subOptions = null) => {
-  // Send selected option as user's outgoing message
   userMessage = question;
-  chatbox.appendChild(createChatLi(userMessage, "c"));
+  chatbox.appendChild(createChatLi(userMessage, "outgoing"));
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
-  // Display "Thinking..." while generating response or sub-options
   const incomingChatLi = createChatLi("Thinking...", "incoming");
   chatbox.appendChild(incomingChatLi);
   chatbox.scrollTo(0, chatbox.scrollHeight);
 
   setTimeout(() => {
     if (subOptions) {
-      // Remove "Thinking..." and display sub-options
       incomingChatLi.remove();
       displayOptions(subOptions);
     } else {
-      // Generate response if no sub-options available
       generateResponse(incomingChatLi);
     }
   }, 1000);
 }
 
 // Function to generate responses based on selected option
-const generateResponse = async (chatElement) => {
+const generateResponse = (chatElement) => {
   const messageElement = chatElement.querySelector("p");
 
-  // Simple responses for each question
+  // Sample responses for each question
   const responses = {
-    "🧑 Tell me about yourself": "I’m a skilled Data Engineer and Software Developer with a background in Computer Science...",
-    "💻 What technical skills do you possess?": "I am proficient in C#, Python, JavaScript, and SQL databases...",
-    "📚 What is your educational background?": "I have a background in Computer Science...",
-    "💼 What previous roles have you held?": "My previous roles include Data Analyst...",
-    "Can you describe a recent project you completed?": "Recently, I completed a project on analyzing automobile data...",
-    "How do you approach problem-solving?": "My approach involves analyzing the problem, researching potential solutions...",
-    "What are your career goals?": "I aim to establish myself as a Senior BI/Software Developer...",
-    "Are you open to remote work or relocation?": "Yes, I am open to remote work and would consider relocation for the right role...",
-    "How would you describe your communication skills?": "I have strong communication skills and am comfortable working in team settings..."
+    "🧑 Tell me about Sinawo": "Sinawo is a dedicated Data Engineer and Software Developer with a strong background in Computer Science and Information Systems. He has a deep passion for turning data into actionable insights and creating meaningful applications.",
+    "📚 What is his educational background?": "Sinawo holds qualifications in Computer Science and Information Systems, with a foundation in technical skills and data management.",
+    "💼 What previous roles has he held?": "He has held various roles, including Data Analyst and Software Developer, which provided experience with data handling, software development, and working within agile frameworks.",
+    "🔍 What are his primary areas of expertise?": "His expertise spans Data Engineering, Business Intelligence, and software development. He is skilled in designing data pipelines and analyzing large datasets to inform business decisions.",
+    "💻 What technical skills does he possess?": "Sinawo is skilled in multiple programming languages, data handling, and software development.",
+    "🖥️ What programming languages does he know?": "He is proficient in languages including C#, Python, JavaScript, Java, and SQL.",
+    "🛠️ What tools and technologies is he proficient in?": "Sinawo is experienced in Power BI, Visual Studio, Git, and Azure DevOps for development and data analysis.",
+    "📊 What databases does he work with?": "He frequently works with Microsoft SQL Server, PostgreSQL, and MySQL.",
+    "📊 Can you describe his recent project he completed?": "One of Sinawo’s recent projects was an automobile data analysis where he collected data, stored it, and built a pipeline for deriving insights. He then visualized the data in Power BI to inform business strategies.",
+    "🧩 How does he approach problem-solving?": "He approaches problem-solving analytically, breaking down issues into manageable parts and leveraging research and testing to develop effective solutions.",
+    "🎯 What are Sinawo's career goals?": "Sinawo aims to grow into a Senior BI/Software Developer role, continually enhancing his skills and taking on greater challenges in data science.",
+    "🌍 Is he open to remote work or relocation?": "Yes, he is open to remote work and would consider relocation if it aligns with his career goals.",
+    "🗣️ How would you describe his communication skills?": "Sinawo possesses strong communication skills, able to convey technical details to diverse audiences and work effectively within teams."
   };
 
-  // Display response based on user question
-  const response = responses[userMessage] || "I'm here to help with any other questions you have!";
+  const response = responses[userMessage] || "I'm here to help with any other questions!";
+  messageElement.textContent = `${response}`;
+  chatbox.scrollTo(0, chatbox.scrollHeight);
+
+  displayFinalOptions();
+};
+
+// Function to display final options
+const displayFinalOptions = () => {
+  const finalOptions = ["🔙 Back to Start", "📞 Contact", "👋 Bye"];
+
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("final-options-container");
+
+  finalOptions.forEach(option => {
+    const optionBtn = document.createElement("button");
+    optionBtn.classList.add("final-btn");
+    optionBtn.textContent = option;
+    optionBtn.addEventListener("click", () => {
+      handleFinalOptionClick(option);
+    });
+
+    buttonContainer.appendChild(optionBtn);
+  });
+
+  const optionLi = document.createElement("li");
+  optionLi.classList.add("chat", "incoming");
+  optionLi.appendChild(buttonContainer);
+  chatbox.appendChild(optionLi);
+
+  chatbox.scrollTo(0, chatbox.scrollHeight);
+};
+
+// Handle clicks for final options
+const handleFinalOptionClick = (option) => {
+  chatbox.appendChild(createChatLi(option, "outgoing"));
+  chatbox.scrollTo(0, chatbox.scrollHeight);
+
+  if (option === "🔙 Back to Start") {
+    displayBackToMainMessage();
+  } else if (option === "📞 Contact") {
+    const contactMessage = createChatLi(
+      "You can reach Sinawo at sinawomngxuma@gmail.com or by phone at 083 352 9353.",
+      "incoming"
+    );
+    chatbox.appendChild(contactMessage);
+  } else if (option === "👋 Bye") {
+    const goodbyeMessage = createChatLi("Goodbye! Feel free to reach out anytime.", "incoming");
+    chatbox.appendChild(goodbyeMessage);
+  }
+
+  chatbox.scrollTo(0, chatbox.scrollHeight);
+};
+
+// Display back to main menu message and show main options
+const displayBackToMainMessage = () => {
+  const backMessage = createChatLi("🔙 Back to Main Menu", "outgoing");
+  chatbox.appendChild(backMessage);
+
+  const chatLi = createChatLi("Hi👋 again! You are back at the main menu. What would you like to know?", "incoming");
+  chatbox.appendChild(chatLi);
+
   setTimeout(() => {
-    messageElement.textContent = response;
-    chatbox.scrollTo(0, chatbox.scrollHeight);
+    displayOptions(hrQuestions);
   }, 1000);
 };
 
 // Initialize chat with HR options
-//  1. The code execution starts here, when the send icon is cliked. then hancdleChat function is called
 document.addEventListener("DOMContentLoaded", () => {
-  displayOptions(hrQuestions); // Display the predefined HR questions as options
+  displayOptions(hrQuestions);
 });
 
 chatInput.addEventListener("input", () => {
@@ -144,10 +242,19 @@ chatInput.addEventListener("input", () => {
 chatInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
     e.preventDefault();
-    handleChat();
+    displayOptions();
   }
 });
 
-sendChatBtn.addEventListener("click", handleChat);
+// sendChatBtn.addEventListener("click", displayOptions);
 closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+
+chatbotToggler.addEventListener("click", () => {
+  document.body.classList.toggle("show-chatbot");
+
+  // Check if initial messages have already been displayed
+  if (chatbox.querySelector(".chat.incoming")) {
+    displayInitialMessages(); // Start displaying initial messages when chatbot opens
+  }
+});

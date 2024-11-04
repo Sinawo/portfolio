@@ -8,26 +8,21 @@
   font-family: "Inter", sans-serif;
 }
 
-/* Style for the "Back to Main Menu" outgoing message */
-/* Style for the "Back to Main Menu" outgoing message */
-.chat .back-message p {
-    background-color: #242676; /* Dark blue background */
-    color: #ffffff; /* White text */
-    padding: 10px 16px;
-
-    font-weight: bold;
-    max-width: 100%;
-}
 
 
+/* Initially hide the chatbot
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+} */
 
 .chatbot {
-    display: block;
     position: fixed; 
     width: 420px;     
     right: 40px;
     bottom: 100px;
-
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -36,9 +31,7 @@
     opacity: 0;
     transition: transform 0.3s ease;
     pointer-events: none;
-    z-index: 100;
 }
-
 
 .chatbot header{
      background: orangered;
@@ -53,25 +46,15 @@
 .chatbot header h2 {
     color: #fff;
     font-size: 1.4rm;
-    text-align: center;
-    padding-bottom: 2px;
-}
-.chatbot header h4 {
- text-align: left;
- color: #fff;
- margin-left: 30px;
-
 }
 
-/* close button for small screens */
 .chatbot header span{
     position: absolute;
     right: 20px;
     top:20px;
-    display: block;  /* hidding the close button for large screens */
+    display: none;  /* hidding the close button for large screens */
     transform: translate(-50%);
     color: #f2f2f2;
-    cursor:pointer;
 }
 
 
@@ -87,7 +70,6 @@
 /* the inner messages with the list <li class="chat incoming"> */
 .chatbox .chat {
     display: flex;
-    
 }
 
 /* the text within the list container */  
@@ -101,7 +83,6 @@
 } /* this is fo all the paragraphs within the list */ 
 
 
-
 /* Now we'll have to overwrite some rules to differintiate between bot & user messages */
 
 
@@ -112,50 +93,12 @@
     color: black;
     background: #f2f2f2;
     border-radius: 10px 10px 10px 0;
-    margin: 20px;
 }
 
-.chatbox .option-btn{
-    
-    color: black;
-    background: #f2f2f2;
-    border-radius: 10px 10px 10px 0;
-    border: none;
-    padding: 10px 16px;
-    margin: 3px 0;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    display: flex;
-    justify-content: flex-start;
-}
-
-
-
-
-.final-btn{
-
-    color: black;
-    background: #f2f2f2;
-    border-radius: 10px 10px 10px 0;
-
-    border: none;
-    padding: 10px 16px;
-    margin: 3px 0;
-    cursor: pointer;
-    position: relative;
-    display: grid;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.option-btn:hover {
-    background-color: darkorange;
-}
 /* the text comming from the user within the list container */  
 .chatbox .outgoing {
     justify-content: flex-end;
     margin: 20px 0;
-
 }
 
 .chatbox .incoming span{
@@ -177,7 +120,7 @@
     padding: 5px 20px;
     display: flex;
     gap: 5px;
-    background: #f2f2f2;
+
 
 }
 
@@ -190,12 +133,8 @@
     font-size: 0.95rem;
     resize: none;
     padding: 16px 15px 16px 0;
-    border: 2px solid orangered;
-    padding: 10px;
-    border-radius: 25px;
 
 }
-/* where the user types */
 .chat-input span{
     color: orangered;
     font-size: 1.35;
@@ -220,20 +159,16 @@
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    background: orangered;
-    color:#f2f2f2;
+
+    background-color: orangered;
     border: none;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-  
+    color: #fff;
     font-size: 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-}
-.chatbot-toggler  span{
-    background: orangered;
-    color:#f2f2f2;
 }
 
 .show-chatbot .chatbot{
@@ -241,6 +176,8 @@
     opacity: 1;
     pointer-events:  auto;
 }
+
+
 
 
 .chatbot-toggler span{
@@ -256,37 +193,19 @@
     opacity: 1;
 }
 
-
-/* Style for the Back to Main Menu message */
-
-
-/* Media query for screens with limited vertical height */
-@media (max-height: 600px) {
-    .chatbot {
-        width: 90%;
-        height: 90vh; /* Adjust chatbot to fit within 90% of the view height */
-        bottom: 5vh; /* Keep some padding at the bottom */
-    }
-    .chatbox {
-        height: calc(90vh - 140px); /* Dynamically calculate space for chat content */
-    }
-}
-
-
 @media(max-width:490px){
     .chatbot
     {
         right: 0;
         bottom: 0;
         width: 100%;
-        height: 100%;
+        height: 80%;
         border-radius: 0;
     }
     .chatbot .chatbox{
         height: 90%;
 
     }
-    /* close button for small screens */
     .chatbot header span{
         display: block;
         
@@ -295,73 +214,46 @@
 
 
 
+/* .chat-menu {
+    position: absolute; /* Allows for absolute positioning of inner elements 
+} */
 
-/* Container for final options buttons */
-.final-options-container {
-    display: flex;
-    justify-content: center; /* Center align the entire button row */
-    gap: 5px;
-    width: 100%; /* Ensures the buttons row spans the container width */
-    margin: 0 auto; /* Center-align the container within the chatbot */
-  }
-  
-  /* Style for each final button */
-  .final-btn {
-    flex: 1; /* Allows each button to take up an equal amount of space */
-    max-width: 100px; /* Limits the width of each button to keep them compact */
-    padding: 10px;
-    background-color: #f2f2f2;
-    color: #4b4b4b;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .final-btn:hover {
-    background-color: darkorange;
+.menu-header {
+    background: orangered;
     color: #fff;
-  }
-  
-
-  .chatbot-greeting {
-    cursor: pointer;
-    position: fixed;
-    bottom: 100px;
-    right: 40px;
-    background-color: #fff;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 200px;
+    justify-content: space-between; /* Distributes space between items */
+    align-items: center; /* Aligns items vertically */
+    cursor: pointer;
+}
 
-    font-family: Arial, sans-serif;
-  }
-  
-  .chatbot-greeting p {
+.menu-title {
+    margin-right: auto; /* Pushes the title to the left */
+}
+
+.arrow {
+    margin-left: 10px; /* Adds space between the title and arrow */
+}
+
+.menu-content {
+    max-height: 200px; /* Start hidden */
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+.menu-content ul {
+    list-style: none;
+    padding: 10px;
     margin: 0;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .close-greeting {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
+}
 
+.menu-content li {
+    padding: 5px 0;
+    color: black;
+}
 
-  .chatbot-header-image {
-    width: 50px;
-    height: 45px;
-    border-radius: 50%;
-    position: relative;
-
-  }
+/* Expanded menu */
+.menu-content.show {
+    max-height: 200px; /* Adjust this value as needed */
+}

@@ -13,13 +13,6 @@
     z-index: 100;
 }
 
-.logo {
-    font-size: 25px;
-    color: darkslategray;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
 .logo:hover {
     color: orangered;
     box-shadow: 0 0 25px orangered;
@@ -27,4 +20,7 @@
     transform: scale(1.1);
     transition: transform 0.3s ease; 
     border: 3px solid orangered;
+}
+span{
+    color: orangered;
 }

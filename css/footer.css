@@ -39,21 +39,14 @@ footer {
     text-decoration: underline;
 }
 
-.newsletter {
-    margin-top: 20px;
+.social-media-icons a img {
+    width: 25px;
+    margin-right: 10px;
 }
 
-.newsletter button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-}
 
-.newsletter button:hover {
-    background-color: #0056b3;
-}
+
+
 
 .footer-bottom {
     margin-top: 30px;
@@ -78,9 +71,6 @@ footer {
 social-media-icons{
   
     color: White;
-
-    transition: .4s ease;
-    <a href="https://github.com/Sinawo/Portfolio.git"><ion-icon name="logo-github"></ion-icon></a>
-
+    transition: 0.4s ease;
     
 }

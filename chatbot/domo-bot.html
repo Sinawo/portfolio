@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot Widget</title>
+<style>
+  /* General styling for the body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf7f3;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Container for the floating chat widget */
+  .chat-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  /* Floating button styling */
+  .chat-widget-button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  /* Chat greeting box styling */
+  .chat-greeting-box {
+    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 200px;
+    text-align: center;
+  }
+
+  /* Text styling inside greeting box */
+  .chat-greeting-box p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+  }
+
+  /* Close button for the greeting box */
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="chat-widget-container">
+  <!-- Chat greeting box -->
+  <div class="chat-greeting-box" id="chatGreetingBox">
+    <button class="close-btn" onclick="toggleGreeting()">✕</button>
+    <p>Hi there 👋</p>
+    <p>How can we help out today?</p>
+  </div>
+
+  <!-- Floating chat button -->
+  <div class="chat-widget-button" onclick="toggleGreeting()">
+    <img src="https://d3tnn7lar6ozas.cloudfront.net/7e1e4778-5c8c-4811-9c3e-9e2945239555.png" alt="Chat Icon" width="24">
+  </div>
+</div>
+
+<script>
+  // Function to toggle the greeting box visibility
+  function toggleGreeting() {
+    const greetingBox = document.getElementById('chatGreetingBox');
+    greetingBox.style.display = (greetingBox.style.display === 'none' || greetingBox.style.display === '') ? 'block' : 'none';
+  }
+</script>
+
+</body>
+</html>
