@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Chatbot</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chatbot Widget</title>
+<style>
+  /* General styling for the body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf7f3;
+    margin: 0;
+    padding: 0;
+  }
 
+  /* Container for the floating chat widget */
+  .chat-widget-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
 
-   <!-- Google Fonts Link For Icons -->
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />  
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <!-- NOTES 
-     Defer tells the browser to wait until the page has finnished parsing before executing the script 
-     parsing is the process of reading and representing JavaScript code as a data structure,
-     
-     
-        while executing is the process of running the code:
-        The execution phase is when the actual code is run. The JavaScript engine reads the code in the current Execution Context, updates the variable values, and then executes the code. 
+  /* Floating button styling */
+  .chat-widget-button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
 
-        WHY? 
-        The speed at which a page parses, compiles, and executes can impact the page's start-up performance.
-    
-    2. We are using GOOGLE FONTS and ICONS
+  /* Chat greeting box styling */
+  .chat-greeting-box {
+    display: none;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 200px;
+    text-align: center;
+  }
 
+  /* Text styling inside greeting box */
+  .chat-greeting-box p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+  }
 
+  /* Close button for the greeting box */
+  .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
-
-
-    -->
-
-    <script src="scripts/chat-handler-script.js" defer></script>
-    <link rel="stylesheet" href="bot-styles/demo-style1.css">
-
+</style>
 </head>
+<body>
 
-<body class="show-chatbot">
-    <button class="chatbot-toggler">
-        <span class="material-symbols-rounded">mode_comment</span>
-        <span class="material-symbols-outlined">close</span>
-    </button>
+<div class="chat-widget-container">
+  <!-- Chat greeting box -->
+  <div class="chat-greeting-box" id="chatGreetingBox">
+    <button class="close-btn" onclick="toggleGreeting()">✕</button>
+    <p>Hi there 👋</p>
+    <p>How can we help out today?</p>
+  </div>
 
-    <div class="chatbot">
-        <header>
-            <h2>Chatbot</h2>
-            <span class="close-btn material-symbols-outlined">close</span>
-        </header>
+  <!-- Floating chat button -->
+  <div class="chat-widget-button" onclick="toggleGreeting()">
+    <img src="https://d3tnn7lar6ozas.cloudfront.net/7e1e4778-5c8c-4811-9c3e-9e2945239555.png" alt="Chat Icon" width="24">
+  </div>
+</div>
 
+<script>
+  // Function to toggle the greeting box visibility
+  function toggleGreeting() {
+    const greetingBox = document.getElementById('chatGreetingBox');
+    greetingBox.style.display = (greetingBox.style.display === 'none' || greetingBox.style.display === '') ? 'block' : 'none';
+  }
+</script>
 
-
-        <ul class="chatbox">
-            <li class="chat incoming">
-                <span class="material-symbols-outlined">smart_toy</span>
-                <p>Hi there👋 <br>How can I help you today?</p>
-            </li>
-            <li class="chat outgoing">
-                <p>This is message from the user</p>
-            </li>
-        </ul>
-
-        <div class="chat-menu">
-            <div class="menu-header" onclick="toggleMenu()">
-                <span class="arrow">&#x25BC;</span> <!-- Down arrow -->
-                <span>Menu</span>
-            </div>
-            <div class="menu-content">
-                <ul>
-                    <li>Option 1</li>
-                    <li>Option 2</li>
-                    <li>Option 3</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="chat-input">
-            <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
-            <span id="send-btn" class="material-symbols-rounded">send</span>
-        </div>
-    </div>
-
-    <script>
-        function toggleMenu() {
-            const menuContent = document.querySelector('.menu-content');
-            menuContent.classList.toggle('show');
-        }
-    </script>
 </body>
-
-
 </html>
