@@ -7,29 +7,17 @@ const greetingMessage = document.querySelector(".chatbot-greeting");
 const closeGreetingBtn = document.querySelector(".close-greeting");
 
 
-
-
-// Close the greeting message when clicking the close button
-closeGreetingBtn.addEventListener("click", (event) => {
-  event.stopPropagation(); // Prevent triggering chatbot open
-  greetingMessage.style.display = "none";
-});
-
-// Show the chatbot when the greeting is clicked
-greetingMessage.addEventListener("click", () => {
-  greetingMessage.style.display = "none"; // Hide the greeting
-  document.body.classList.add("show-chatbot"); // Show the chatbot
-});
-
-
 let userMessage = null; // Variable to store user's message
 const inputInitHeight = chatInput.scrollHeight;
+let isInitialMessageDisplayed = false; // To track if initial messages have been shown
 
 // Define the initial messages
 const initialMessages = [
   "Hi I'm Django! Sinawo's Buddy",
-  "I’m Curious What Makes You So Curious. How can I help you today?"
+  "I’m Curious What Makes You So Curious. How can I help you today?", 
+  "Say Hi to get started, I'll tell you all about him😜"
 ];
+
 
 // Main HR questions
 const hrQuestions = [
@@ -59,6 +47,26 @@ const subQuestions = {
 };
 
 
+
+// Close the greeting message when clicking the close button
+closeGreetingBtn.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent triggering chatbot open
+  greetingMessage.style.display = "none";
+});
+
+// Show the chatbot when the greeting is clicked
+greetingMessage.addEventListener("click", () => {
+  greetingMessage.style.display = "none"; // Hide the greeting
+  document.body.classList.add("show-chatbot"); // Show the chatbot
+});
+
+
+
+
+
+
+
+
 // Function to show initial messages with a delay
 const displayInitialMessages = async () => {
   for (let i = 0; i < initialMessages.length; i++) {
@@ -68,7 +76,7 @@ const displayInitialMessages = async () => {
     chatbox.scrollTo(0, chatbox.scrollHeight);
 
     // Wait a moment to simulate "Thinking..."
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     // Remove the "Thinking..." message and add the real message
     thinkingLi.remove();
@@ -77,20 +85,34 @@ const displayInitialMessages = async () => {
     chatbox.scrollTo(0, chatbox.scrollHeight);
 
     // Wait before showing the next message
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 500));
   }
+  // Enable the input to proceed to HR questions
+  chatInput.placeholder = "Type here to continue...";
+  chatInput.disabled = false;
 
   // Once all messages are shown, display options
-  displayOptions(hrQuestions);
+  // displayOptions(hrQuestions);
 };
 
 /// Function to display initial HR options as buttons
-const displayOptions = (options) => {
-  options.forEach((question) => {
+const displayOptions = async (options) => {
+  for (const question of options) {
+    // Display "Thinking..." message first
+    const thinkingLi = createChatLi("Thinking...", "incoming");
+    chatbox.appendChild(thinkingLi);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    // Wait a moment to simulate "Thinking..."
+    await new Promise(resolve => setTimeout(resolve, 500));
+    thinkingLi.remove();
+
+    // Create and display the option button after "Thinking..." message
     const optionBtn = document.createElement("button");
     optionBtn.classList.add("option-btn");
     optionBtn.textContent = question;
 
+    // Attach event listener to handle the option click
     optionBtn.addEventListener("click", () => {
       if (question === "🔙 Back to Main Menu") {
         displayBackToMainMessage();
@@ -101,26 +123,20 @@ const displayOptions = (options) => {
       }
     });
 
+    // Create list item and add the button to it
     const optionLi = document.createElement("li");
     optionLi.classList.add("chat", "incoming");
+    optionLi.appendChild(optionBtn);
 
-    // Display "Thinking..." message first
-    const thinkingLi = createChatLi("Thinking...", "incoming");
-    chatbox.appendChild(thinkingLi);
+    // Append the option to the chatbox
+    chatbox.appendChild(optionLi);
     chatbox.scrollTo(0, chatbox.scrollHeight);
 
-    // Wait a moment to simulate "Thinking..."
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    // Remove the "Thinking..." message and add the real message
-    thinkingLi.remove();
-
-    optionLi.appendChild(optionBtn);
-    chatbox.appendChild(optionLi);
-  });
-
-  chatbox.scrollTo(0, chatbox.scrollHeight);
+    // Pause briefly before displaying the next question
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
 };
+
 
 
 // Function to create chat list item for user and bot responses
@@ -149,7 +165,7 @@ const handleOptionClick = (question, subOptions = null) => {
     } else {
       generateResponse(incomingChatLi);
     }
-  }, 1000);
+  }, 10);
 }
 
 // Function to generate responses based on selected option
@@ -241,9 +257,9 @@ const displayBackToMainMessage = () => {
 };
 
 // Initialize chat with HR options
-document.addEventListener("DOMContentLoaded", () => {
-  displayOptions(hrQuestions);
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   displayOptions(hrQuestions);
+// });   
 
 chatInput.addEventListener("input", () => {
   // Adjust the height of the input textarea based on its content
@@ -252,21 +268,32 @@ chatInput.addEventListener("input", () => {
 });
 
 chatInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+  if (e.key === "Enter" && !e.shiftKey && chatInput.value.trim()) {
     e.preventDefault();
-    displayOptions();
+    userMessage = chatInput.value;
+    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+    chatInput.value = ""; // Clear input
+    chatInput.disabled = true; // Disable input once HR questions start
+
+    // Display HR questions
+    displayOptions(hrQuestions);
   }
-});
+})
 
 // sendChatBtn.addEventListener("click", displayOptions);
-closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
-
+// Close the chatbot
+closeBtn.addEventListener("click", () => {
+  document.body.classList.remove("show-chatbot");
+  chatInput.disabled = false; // Re-enable input for the next session
+});
 
 chatbotToggler.addEventListener("click", () => {
   document.body.classList.toggle("show-chatbot");
 
   // Check if initial messages have already been displayed
-  if (chatbox.querySelector(".chat.incoming")) {
-    displayInitialMessages(); // Start displaying initial messages when chatbot opens
+  if (!isInitialMessageDisplayed) {
+    isInitialMessageDisplayed = true;
+    displayInitialMessages();
+    chatInput.disabled = true; // Disable input until initial messages are done
   }
 });
