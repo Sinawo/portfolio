@@ -103,6 +103,18 @@ const displayOptions = (options) => {
 
     const optionLi = document.createElement("li");
     optionLi.classList.add("chat", "incoming");
+
+    // Display "Thinking..." message first
+    const thinkingLi = createChatLi("Thinking...", "incoming");
+    chatbox.appendChild(thinkingLi);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    // Wait a moment to simulate "Thinking..."
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Remove the "Thinking..." message and add the real message
+    thinkingLi.remove();
+
     optionLi.appendChild(optionBtn);
     chatbox.appendChild(optionLi);
   });
